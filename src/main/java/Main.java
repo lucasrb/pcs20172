@@ -1,5 +1,5 @@
 class Main {
     int add(int a, int b){
-        return a + b + b;
+        return a + b + a;
     }
 }
