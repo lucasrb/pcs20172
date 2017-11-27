@@ -28,31 +28,34 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         homePanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelHome = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         homePanel.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jLabel1.setFont(new java.awt.Font("Ebrima", 0, 48)); // NOI18N
-        jLabel1.setText("Home Screen :)");
+        panelHome.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
+        panelHome.setLayout(panelHomeLayout);
+        panelHomeLayout.setHorizontalGroup(
+            panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        panelHomeLayout.setVerticalGroup(
+            panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
         homePanel.setLayout(homePanelLayout);
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
-                .addContainerGap(243, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(237, 237, 237))
+            .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jLabel1)
-                .addContainerGap(452, Short.MAX_VALUE))
+            .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,6 +113,6 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel homePanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel panelHome;
     // End of variables declaration//GEN-END:variables
 }

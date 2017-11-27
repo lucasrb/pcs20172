@@ -32,25 +32,21 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         login_view = new javax.swing.JPanel();
+        panelLogin = new javax.swing.JPanel();
         title_lbl = new javax.swing.JLabel();
+        login_btn1 = new javax.swing.JButton();
         login_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        login_btn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setSize(new java.awt.Dimension(800, 600));
 
-        title_lbl.setFont(new java.awt.Font("Ebrima", 0, 36)); // NOI18N
+        panelLogin.setBackground(new java.awt.Color(255, 255, 255));
+
+        title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title_lbl.setText("My Plate");
-
-        login_btn.setBackground(new java.awt.Color(255, 0, 51));
-        login_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        login_btn.setForeground(new java.awt.Color(255, 255, 255));
-        login_btn.setText("Cadastre-se");
-
-        jLabel1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
-        jLabel1.setText("Ainda não é membro?");
 
         login_btn1.setBackground(new java.awt.Color(255, 0, 51));
         login_btn1.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
@@ -62,34 +58,59 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        login_btn.setBackground(new java.awt.Color(255, 0, 51));
+        login_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        login_btn.setForeground(new java.awt.Color(255, 255, 255));
+        login_btn.setText("Cadastre-se");
+        login_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_btnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        jLabel1.setText("Ainda não é membro?");
+
+        javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
+        panelLogin.setLayout(panelLoginLayout);
+        panelLoginLayout.setHorizontalGroup(
+            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginLayout.createSequentialGroup()
+                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLoginLayout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelLoginLayout.createSequentialGroup()
+                        .addGap(262, 262, 262)
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(login_btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(275, Short.MAX_VALUE))
+        );
+        panelLoginLayout.setVerticalGroup(
+            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginLayout.createSequentialGroup()
+                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(login_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(157, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout login_viewLayout = new javax.swing.GroupLayout(login_view);
         login_view.setLayout(login_viewLayout);
         login_viewLayout.setHorizontalGroup(
             login_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_viewLayout.createSequentialGroup()
-                .addContainerGap(288, Short.MAX_VALUE)
-                .addGroup(login_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(login_viewLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(login_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(login_btn1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(242, 242, 242))
+            .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         login_viewLayout.setVerticalGroup(
             login_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(login_viewLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(login_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+            .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,11 +131,16 @@ public class Login extends javax.swing.JFrame {
         controller.renderCredentials(this);
     }//GEN-LAST:event_login_btn1ActionPerformed
 
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
+        controller.renderCadastro(this);
+    }//GEN-LAST:event_login_btnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton login_btn;
     private javax.swing.JButton login_btn1;
     private javax.swing.JPanel login_view;
+    private javax.swing.JPanel panelLogin;
     private javax.swing.JLabel title_lbl;
     // End of variables declaration//GEN-END:variables
 }

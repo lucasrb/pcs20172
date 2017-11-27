@@ -6,6 +6,7 @@
 package controllers;
 
 import javax.swing.JFrame;
+import views.Cadastro;
 import views.Home;
 import views.LoginCredentials;
 
@@ -26,6 +27,13 @@ public class FrameController {
         Home home = new Home();
         home.setVisible(true);
 
+        frame.setVisible(false);
+    }
+    
+    public void renderCadastro(JFrame frame) {
+        Cadastro cadastro = new Cadastro();
+        cadastro.setVisible(true);
+        
         frame.setVisible(false);
     }
 }

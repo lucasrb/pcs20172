@@ -32,23 +32,25 @@ public class LoginCredentials extends javax.swing.JFrame {
     private void initComponents() {
 
         login_credentials_pnl = new javax.swing.JPanel();
+        panelLoginCredencial = new javax.swing.JPanel();
         title_lbl = new javax.swing.JLabel();
         email_lbl = new javax.swing.JLabel();
         email_txt = new javax.swing.JTextField();
         password_lbl = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         retrieve_lbl = new javax.swing.JLabel();
-        enter_btn = new javax.swing.JButton();
         retrieve_lbl1 = new javax.swing.JLabel();
+        enter_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setSize(new java.awt.Dimension(800, 600));
 
         login_credentials_pnl.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         login_credentials_pnl.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        title_lbl.setFont(new java.awt.Font("Ebrima", 0, 36)); // NOI18N
+        panelLoginCredencial.setBackground(new java.awt.Color(255, 255, 255));
+
+        title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
         title_lbl.setText("My Plate");
 
         email_lbl.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -69,6 +71,13 @@ public class LoginCredentials extends javax.swing.JFrame {
         retrieve_lbl.setFocusable(false);
         retrieve_lbl.setName("password"); // NOI18N
 
+        retrieve_lbl1.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        retrieve_lbl1.setForeground(new java.awt.Color(0, 153, 255));
+        retrieve_lbl1.setText("Clique Aqui");
+        retrieve_lbl1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        retrieve_lbl1.setFocusable(false);
+        retrieve_lbl1.setName("password"); // NOI18N
+
         enter_btn.setBackground(new java.awt.Color(255, 0, 51));
         enter_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         enter_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,62 +88,65 @@ public class LoginCredentials extends javax.swing.JFrame {
             }
         });
 
-        retrieve_lbl1.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        retrieve_lbl1.setForeground(new java.awt.Color(0, 153, 255));
-        retrieve_lbl1.setText("Clique Aqui");
-        retrieve_lbl1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        retrieve_lbl1.setFocusable(false);
-        retrieve_lbl1.setName("password"); // NOI18N
+        javax.swing.GroupLayout panelLoginCredencialLayout = new javax.swing.GroupLayout(panelLoginCredencial);
+        panelLoginCredencial.setLayout(panelLoginCredencialLayout);
+        panelLoginCredencialLayout.setHorizontalGroup(
+            panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                        .addGap(329, 329, 329)
+                        .addComponent(title_lbl))
+                    .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(email_lbl)
+                                .addComponent(password_lbl)
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+                                .addComponent(email_txt))
+                            .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                                .addComponent(retrieve_lbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(retrieve_lbl1))))
+                    .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                        .addGap(262, 262, 262)
+                        .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        panelLoginCredencialLayout.setVerticalGroup(
+            panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(email_lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(password_lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(retrieve_lbl)
+                    .addComponent(retrieve_lbl1))
+                .addGap(52, 52, 52)
+                .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+
+        email_lbl.getAccessibleContext().setAccessibleName("Email");
 
         javax.swing.GroupLayout login_credentials_pnlLayout = new javax.swing.GroupLayout(login_credentials_pnl);
         login_credentials_pnl.setLayout(login_credentials_pnlLayout);
         login_credentials_pnlLayout.setHorizontalGroup(
             login_credentials_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(login_credentials_pnlLayout.createSequentialGroup()
-                .addGap(322, 322, 322)
-                .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addGap(324, 324, 324))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_credentials_pnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255))
-            .addGroup(login_credentials_pnlLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(login_credentials_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(login_credentials_pnlLayout.createSequentialGroup()
-                        .addComponent(retrieve_lbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(retrieve_lbl1))
-                    .addGroup(login_credentials_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(password_lbl)
-                        .addComponent(email_lbl)
-                        .addComponent(email_txt)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelLoginCredencial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         login_credentials_pnlLayout.setVerticalGroup(
             login_credentials_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(login_credentials_pnlLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(email_lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(password_lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(login_credentials_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(retrieve_lbl)
-                    .addComponent(retrieve_lbl1))
-                .addGap(68, 68, 68)
-                .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+            .addComponent(panelLoginCredencial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        email_lbl.getAccessibleContext().setAccessibleName("Email");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,6 +211,7 @@ public class LoginCredentials extends javax.swing.JFrame {
     private javax.swing.JButton enter_btn;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPanel login_credentials_pnl;
+    private javax.swing.JPanel panelLoginCredencial;
     private javax.swing.JLabel password_lbl;
     private javax.swing.JLabel retrieve_lbl;
     private javax.swing.JLabel retrieve_lbl1;
