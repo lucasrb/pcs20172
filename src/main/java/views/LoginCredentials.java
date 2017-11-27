@@ -77,6 +77,11 @@ public class LoginCredentials extends javax.swing.JFrame {
         retrieve_lbl1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         retrieve_lbl1.setFocusable(false);
         retrieve_lbl1.setName("password"); // NOI18N
+        retrieve_lbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                redirectEsqueciSenha(evt);
+            }
+        });
 
         enter_btn.setBackground(new java.awt.Color(255, 0, 51));
         enter_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
@@ -169,6 +174,10 @@ public class LoginCredentials extends javax.swing.JFrame {
     private void enter_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enter_btnActionPerformed
         controller.renderHome(this);
     }//GEN-LAST:event_enter_btnActionPerformed
+
+    private void redirectEsqueciSenha(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirectEsqueciSenha
+         controller.renderEsqueciSenha(this);
+    }//GEN-LAST:event_redirectEsqueciSenha
 
     /**
      * @param args the command line arguments

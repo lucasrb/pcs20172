@@ -119,11 +119,6 @@ public class Cadastro extends javax.swing.JFrame {
         cadastro_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         cadastro_btn.setForeground(new java.awt.Color(255, 255, 255));
         cadastro_btn.setText("Cadastrar");
-        cadastro_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastro_btnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelCadastroLayout = new javax.swing.GroupLayout(panelCadastro);
         panelCadastro.setLayout(panelCadastroLayout);
@@ -242,10 +237,6 @@ public class Cadastro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cadastro_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastro_btnActionPerformed
-        controller.renderCredentials(this);
-    }//GEN-LAST:event_cadastro_btnActionPerformed
 
     /**
      * @param args the command line arguments

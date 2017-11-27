@@ -7,6 +7,7 @@ package controllers;
 
 import javax.swing.JFrame;
 import views.Cadastro;
+import views.EsqueciSenha;
 import views.Home;
 import views.LoginCredentials;
 
@@ -20,20 +21,27 @@ public class FrameController {
         LoginCredentials loginCredentials = new LoginCredentials();
         loginCredentials.setVisible(true);
 
-        frame.setVisible(false);
+        frame.dispose();
     }
 
     public void renderHome(JFrame frame) {
         Home home = new Home();
         home.setVisible(true);
 
-        frame.setVisible(false);
+        frame.dispose();
     }
     
     public void renderCadastro(JFrame frame) {
         Cadastro cadastro = new Cadastro();
         cadastro.setVisible(true);
         
-        frame.setVisible(false);
+        frame.dispose();
+    }
+    
+    public void renderEsqueciSenha(JFrame frame){
+        EsqueciSenha esqueciSenha = new EsqueciSenha();
+        esqueciSenha.setVisible(true);
+        
+        frame.dispose();
     }
 }
