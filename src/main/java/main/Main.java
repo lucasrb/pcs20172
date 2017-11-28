@@ -4,11 +4,6 @@ package main;
 import views.Login;
 
 class Main {
-
-    int add(int a, int b) {
-        return a + b;
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -43,5 +38,7 @@ class Main {
                 new Login().setVisible(true);
             }
         });
+        
+        
     }
 }

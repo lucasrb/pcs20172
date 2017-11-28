@@ -6,6 +6,9 @@
 package views;
 
 import controllers.FrameController;
+import java.util.Arrays;
+import java.util.Calendar;
+import vo.ClienteVO;
 
 /**
  *
@@ -119,6 +122,11 @@ public class Cadastro extends javax.swing.JFrame {
         cadastro_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         cadastro_btn.setForeground(new java.awt.Color(255, 255, 255));
         cadastro_btn.setText("Cadastrar");
+        cadastro_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastro_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCadastroLayout = new javax.swing.GroupLayout(panelCadastro);
         panelCadastro.setLayout(panelCadastroLayout);
@@ -237,6 +245,21 @@ public class Cadastro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cadastro_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastro_btnActionPerformed
+        ClienteVO cliente = new ClienteVO();
+        
+        cliente.setNome(nome_txt.getText());
+        cliente.setSobrenome(sobrenome_txt.getText());
+        cliente.setEmail(email_txt.getText());
+        cliente.setDtNasc(diaNasc_txt.getText() + "/" + mesNasc_txt.getText() + "/" + anoNasc_txt.getText());
+        cliente.setSenha(Arrays.toString((senha.getPassword())));
+        
+        System.out.println("Nome: " + cliente.getNome() + " " + cliente.getSobrenome());
+        System.out.println("Email: " + cliente.getEmail());
+        System.out.println("DtNasc: " + cliente.getDtNasc());
+        System.out.println("Senha: " + cliente.getSenha());
+    }//GEN-LAST:event_cadastro_btnActionPerformed
 
     /**
      * @param args the command line arguments
