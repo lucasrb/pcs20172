@@ -16,11 +16,10 @@ public class ClienteVO {
     private String  nome;
     private String  sobrenome;
     private String  email;
-    private String  cpf;
+    private String  cpf_cnpj;
     private String  dtNasc;
     private String  sexo;
     private String  senha;
-    private String  cnfSenha;
 
     public String getNome() {
         return nome;
@@ -46,12 +45,12 @@ public class ClienteVO {
         this.email = email;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpf_cnpj() {
+        return cpf_cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpf_cnpj(String cpf_cnpj) {
+        this.cpf_cnpj = cpf_cnpj;
     }
 
     public String getDtNasc() {
@@ -78,11 +77,5 @@ public class ClienteVO {
         this.senha = senha;
     }
     
-    public String getCnfSenha() {
-        return cnfSenha;
-    }
-
-    public void setCnfSenha(String cnfSenha) {
-        this.cnfSenha = cnfSenha;
-    }
+    
 }
