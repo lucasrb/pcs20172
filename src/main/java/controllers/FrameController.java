@@ -6,10 +6,7 @@
 package controllers;
 
 import javax.swing.JFrame;
-import views.Cadastro;
-import views.EsqueciSenha;
-import views.Home;
-import views.LoginCredentials;
+import views.*;
 
 /**
  *
@@ -41,6 +38,34 @@ public class FrameController {
     public void renderEsqueciSenha(JFrame frame){
         EsqueciSenha esqueciSenha = new EsqueciSenha();
         esqueciSenha.setVisible(true);
+        
+        frame.dispose();
+    }
+    
+    public void renderLoginRest(JFrame frame){
+        LoginRest login = new LoginRest();
+        login.setVisible(true);
+        
+        frame.dispose();
+    }
+    
+     public void renderLogin(JFrame frame){
+        Login login = new Login();
+        login.setVisible(true);
+        
+        frame.dispose();
+     }
+     
+     public void renderCredentialsRest(JFrame frame) {
+        LoginCredentialsRest loginCredentials = new LoginCredentialsRest();
+        loginCredentials.setVisible(true);
+
+        frame.dispose();
+    }
+     
+    public void renderCadastroRest(JFrame frame) {
+        CadastroRest cadastro = new CadastroRest();
+        cadastro.setVisible(true);
         
         frame.dispose();
     }

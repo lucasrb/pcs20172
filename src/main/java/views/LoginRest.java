@@ -11,14 +11,14 @@ import controllers.FrameController;
  *
  * @author rsbramb
  */
-public class Login extends javax.swing.JFrame {
+public class LoginRest extends javax.swing.JFrame {
 
     private final FrameController controller = new FrameController();
 
     /**
      * Creates new form NewJFrame
      */
-    public Login() {
+    public LoginRest() {
         initComponents();
     }
 
@@ -38,7 +38,7 @@ public class Login extends javax.swing.JFrame {
         login_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        redirectRestLink = new javax.swing.JLabel();
+        redirectMyPlate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -47,10 +47,11 @@ public class Login extends javax.swing.JFrame {
         panelLogin.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(51, 51, 255));
         title_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title_lbl.setText("My Plate");
 
-        login_btn1.setBackground(new java.awt.Color(255, 0, 51));
+        login_btn1.setBackground(new java.awt.Color(51, 51, 255));
         login_btn1.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         login_btn1.setForeground(new java.awt.Color(255, 255, 255));
         login_btn1.setText("Login");
@@ -60,7 +61,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        login_btn.setBackground(new java.awt.Color(255, 0, 51));
+        login_btn.setBackground(new java.awt.Color(51, 0, 255));
         login_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         login_btn.setForeground(new java.awt.Color(255, 255, 255));
         login_btn.setText("Cadastre-se");
@@ -73,16 +74,16 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         jLabel1.setText("Ainda não é membro?");
 
-        jLabel2.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setText("Restaurante?");
+        jLabel2.setText("Restaurant");
 
-        redirectRestLink.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        redirectRestLink.setForeground(new java.awt.Color(51, 51, 255));
-        redirectRestLink.setText("clique aqui");
-        redirectRestLink.addMouseListener(new java.awt.event.MouseAdapter() {
+        redirectMyPlate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        redirectMyPlate.setForeground(new java.awt.Color(255, 0, 0));
+        redirectMyPlate.setText("myPlate");
+        redirectMyPlate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                redirectRestLinkMouseClicked(evt);
+                redirectMyPlateMouseClicked(evt);
             }
         });
 
@@ -103,29 +104,30 @@ public class Login extends javax.swing.JFrame {
                                 .addGap(262, 262, 262)
                                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                                    .addComponent(login_btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(login_btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(panelLoginLayout.createSequentialGroup()
+                                .addGap(354, 354, 354)
+                                .addComponent(jLabel2)))
                         .addGap(0, 265, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(redirectRestLink)))
+                        .addComponent(redirectMyPlate)))
                 .addContainerGap())
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(80, 80, 80)
                 .addComponent(login_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(redirectRestLink))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(redirectMyPlate)
                 .addContainerGap())
         );
 
@@ -155,17 +157,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn1ActionPerformed
-        controller.renderCredentials(this);
+        controller.renderCredentialsRest(this);
     }//GEN-LAST:event_login_btn1ActionPerformed
 
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
-        controller.renderCadastro(this);
+        controller.renderCadastroRest(this);
     }//GEN-LAST:event_login_btnActionPerformed
 
-    private void redirectRestLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirectRestLinkMouseClicked
-        FrameController controller = new FrameController();
-        controller.renderLoginRest(this);
-    }//GEN-LAST:event_redirectRestLinkMouseClicked
+    private void redirectMyPlateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirectMyPlateMouseClicked
+        controller.renderLogin(this);
+    }//GEN-LAST:event_redirectMyPlateMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -174,7 +175,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton login_btn1;
     private javax.swing.JPanel login_view;
     private javax.swing.JPanel panelLogin;
-    private javax.swing.JLabel redirectRestLink;
+    private javax.swing.JLabel redirectMyPlate;
     private javax.swing.JLabel title_lbl;
     // End of variables declaration//GEN-END:variables
 }

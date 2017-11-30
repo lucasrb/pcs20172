@@ -5,33 +5,22 @@
  */
 package views;
 
-import controllers.FrameController;
-import controllers.LoginController;
-import java.io.File;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
-import vo.ClienteVO;
+import controllers.*;
+import vo.*;
 
 /**
  *
  * @author rsbramb
  */
-public class LoginCredentials extends javax.swing.JFrame {
+public class LoginCredentialsRest extends javax.swing.JFrame {
 
     private FrameController controller = new FrameController();
     private LoginController loginController = new LoginController();
-
+    
     /**
      * Creates new form LoginCredentials
      */
-    public LoginCredentials() {
+    public LoginCredentialsRest() {
         initComponents();
     }
 
@@ -54,7 +43,7 @@ public class LoginCredentials extends javax.swing.JFrame {
         retrieve_lbl = new javax.swing.JLabel();
         retrieve_lbl1 = new javax.swing.JLabel();
         enter_btn = new javax.swing.JButton();
-        erroLogin = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -65,6 +54,7 @@ public class LoginCredentials extends javax.swing.JFrame {
         panelLoginCredencial.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(51, 51, 255));
         title_lbl.setText("My Plate");
 
         email_lbl.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -97,7 +87,7 @@ public class LoginCredentials extends javax.swing.JFrame {
             }
         });
 
-        enter_btn.setBackground(new java.awt.Color(255, 0, 51));
+        enter_btn.setBackground(new java.awt.Color(51, 51, 255));
         enter_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         enter_btn.setForeground(new java.awt.Color(255, 255, 255));
         enter_btn.setText("Entrar");
@@ -107,8 +97,9 @@ public class LoginCredentials extends javax.swing.JFrame {
             }
         });
 
-        erroLogin.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        erroLogin.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("Restaurant");
 
         javax.swing.GroupLayout panelLoginCredencialLayout = new javax.swing.GroupLayout(panelLoginCredencial);
         panelLoginCredencial.setLayout(panelLoginCredencialLayout);
@@ -117,12 +108,11 @@ public class LoginCredentials extends javax.swing.JFrame {
             .addGroup(panelLoginCredencialLayout.createSequentialGroup()
                 .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(329, 329, 329)
+                        .addComponent(title_lbl))
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(erroLogin)
                             .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(email_lbl)
                                 .addComponent(password_lbl)
@@ -133,17 +123,20 @@ public class LoginCredentials extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(retrieve_lbl1))))
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                        .addGap(282, 282, 282)
-                        .addComponent(title_lbl)))
+                        .addGap(262, 262, 262)
+                        .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                        .addGap(355, 355, 355)
+                        .addComponent(jLabel2)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         panelLoginCredencialLayout.setVerticalGroup(
             panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(erroLogin)
-                .addGap(60, 60, 60)
+                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(40, 40, 40)
                 .addComponent(email_lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,7 +185,6 @@ public class LoginCredentials extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enter_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enter_btnActionPerformed
-        
         ClienteVO cliente = new ClienteVO();
         
         cliente.setEmail(email_txt.getText());
@@ -200,7 +192,7 @@ public class LoginCredentials extends javax.swing.JFrame {
         String strSenha = new String(snh);
         cliente.setSenha(strSenha);
         
-        if(loginController.confirmaLogin(cliente, "1")){
+        if(loginController.confirmaLogin(cliente, "2")){
             controller.renderHome(this);
         }
     }//GEN-LAST:event_enter_btnActionPerformed
@@ -226,20 +218,21 @@ public class LoginCredentials extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginCredentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginCredentialsRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginCredentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginCredentialsRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginCredentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginCredentialsRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginCredentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginCredentialsRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginCredentials().setVisible(true);
+                new LoginCredentialsRest().setVisible(true);
             }
         });
     }
@@ -248,7 +241,7 @@ public class LoginCredentials extends javax.swing.JFrame {
     private javax.swing.JLabel email_lbl;
     private javax.swing.JTextField email_txt;
     private javax.swing.JButton enter_btn;
-    private javax.swing.JLabel erroLogin;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPanel login_credentials_pnl;
     private javax.swing.JPanel panelLoginCredencial;

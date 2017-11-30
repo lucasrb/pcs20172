@@ -18,14 +18,14 @@ import vo.ClienteVO;
  *
  * @author bruno.franco
  */
-public class Cadastro extends javax.swing.JFrame {
+public class CadastroRest extends javax.swing.JFrame {
     
     private final FrameController controller = new FrameController();
     private final CadastroController cadController = new CadastroController();
     /**
      * Creates new form Cadastro
      */
-    public Cadastro() {
+    public CadastroRest() {
         initComponents();
     }
 
@@ -64,12 +64,14 @@ public class Cadastro extends javax.swing.JFrame {
         confSenha = new javax.swing.JPasswordField();
         cadastro_btn = new javax.swing.JButton();
         lstErros = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelCadastro.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(51, 51, 255));
         title_lbl.setText("My Plate");
 
         labelNome.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -124,7 +126,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         confSenha.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
 
-        cadastro_btn.setBackground(new java.awt.Color(255, 0, 51));
+        cadastro_btn.setBackground(new java.awt.Color(51, 51, 255));
         cadastro_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         cadastro_btn.setForeground(new java.awt.Color(255, 255, 255));
         cadastro_btn.setText("Cadastrar");
@@ -134,14 +136,14 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel4.setText("Restaurant");
+
         javax.swing.GroupLayout panelCadastroLayout = new javax.swing.GroupLayout(panelCadastro);
         panelCadastro.setLayout(panelCadastroLayout);
         panelCadastroLayout.setHorizontalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(cadastro_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelCadastroLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,6 +191,15 @@ public class Cadastro extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(radioSexoFem)))
                                 .addGap(0, 0, Short.MAX_VALUE))))))
+            .addGroup(panelCadastroLayout.createSequentialGroup()
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(cadastro_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(356, 356, 356)
+                        .addComponent(jLabel4)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelCadastroLayout.setVerticalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +207,9 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lstErros))
-                .addGap(128, 128, 128)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(97, 97, 97)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
                     .addComponent(labelSobre))
@@ -312,18 +325,19 @@ public class Cadastro extends javax.swing.JFrame {
         } else if (radioSexoFem.isSelected()){
             cliente.setSexo(radioSexoFem.getText());
         }
+        
         char[] snh = senha.getPassword();
         String strSenha = new String(snh);
         cliente.setSenha(strSenha);
         
         char[] confSnh = confSenha.getPassword();
         String snhconf = new String(confSnh);
-        cliente.setCnfSenha(snhconf);  
+        cliente.setCnfSenha(snhconf); 
         
         List erros = validateCliente();
         
         if(erros.isEmpty()){
-            cadController.cadastrarCliente(cliente, 1);
+            cadController.cadastrarCliente(cliente, 2);
             controller.renderHome(this);
         } else {
             
@@ -353,20 +367,21 @@ public class Cadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cadastro().setVisible(true);
+                new CadastroRest().setVisible(true);
             }
         });
     }
@@ -382,6 +397,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelConformarSenha;
     private javax.swing.JLabel labelDtNasc;
     private javax.swing.JLabel labelDtNasc1;
