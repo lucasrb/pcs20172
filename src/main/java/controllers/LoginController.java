@@ -24,11 +24,13 @@ import vo.ClienteVO;
  */
 public class LoginController {
     
+    private String localPath = System.getProperty("user.dir");
+    
     public boolean confirmaLogin(ClienteVO clienteVO, String tipo){
         if(clienteVO.getEmail().length() != 0 || clienteVO.getEmail() != null){
             if(clienteVO.getSenha() != null || clienteVO.getSenha().length() != 0){
                 
-                File arquivoClientes = new File("C:/Users/bruno.franco/Documents/NetBeansProjects/pcs20172/pcs20172/src/main/java/data/Clientes.xml");  
+                File arquivoClientes = new File(localPath + "/src/main/java/data/Clientes.xml");  
                 SAXBuilder builder = new SAXBuilder();
             
                 Document doc;

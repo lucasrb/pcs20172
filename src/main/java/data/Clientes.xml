@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <clientes>
   <cliente>
-    <nome>teste</nome>
-    <sobrenome>teste</sobrenome>
+    <nome>Bruno</nome>
+    <sobrenome>Franco</sobrenome>
     <tipo>1</tipo>
-    <email>teste</email>
-    <cpf>teste</cpf>
-    <dataNascimento>12/12/1212</dataNascimento>
+    <email>brunobfranco@gmail.com</email>
+    <cpf>15555025718</cpf>
+    <dataNascimento>17/02/1997</dataNascimento>
     <Sexo>Masculino</Sexo>
-    <Senha>teste</Senha>
-  </cliente>
-  <cliente>
-    <nome>teste</nome>
-    <sobrenome>teste</sobrenome>
-    <tipo>2</tipo>
-    <email>rest</email>
-    <cpf>test</cpf>
-    <dataNascimento>1/1/1</dataNascimento>
-    <Sexo>Masculino</Sexo>
-    <Senha>rest</Senha>
+    <Senha>123</Senha>
   </cliente>
 </clientes>

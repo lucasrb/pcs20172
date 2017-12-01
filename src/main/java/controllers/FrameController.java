@@ -28,6 +28,13 @@ public class FrameController {
         frame.dispose();
     }
     
+    public void renderHomeRest(JFrame frame) {
+        HomeRest home = new HomeRest();
+        home.setVisible(true);
+
+        frame.dispose();
+    }
+    
     public void renderCadastro(JFrame frame) {
         Cadastro cadastro = new Cadastro();
         cadastro.setVisible(true);
@@ -37,6 +44,13 @@ public class FrameController {
     
     public void renderEsqueciSenha(JFrame frame){
         EsqueciSenha esqueciSenha = new EsqueciSenha();
+        esqueciSenha.setVisible(true);
+        
+        frame.dispose();
+    }
+    
+    public void renderEsqueciSenhaRest(JFrame frame){
+        EsqueciSenhaRest esqueciSenha = new EsqueciSenhaRest();
         esqueciSenha.setVisible(true);
         
         frame.dispose();

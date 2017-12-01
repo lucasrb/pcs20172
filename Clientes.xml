@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientes>
+  <cliente>
+    <nome>1</nome>
+    <sobrenome>1</sobrenome>
+    <tipo>1</tipo>
+    <email>1</email>
+    <cpf>1</cpf>
+    <dataNascimento>1/1/1</dataNascimento>
+    <Sexo>Masculino</Sexo>
+    <Senha>1</Senha>
+  </cliente>
+</clientes>

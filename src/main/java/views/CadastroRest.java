@@ -65,6 +65,7 @@ public class CadastroRest extends javax.swing.JFrame {
         cadastro_btn = new javax.swing.JButton();
         lstErros = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,12 +141,24 @@ public class CadastroRest extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 255));
         jLabel4.setText("Restaurant");
 
+        btnVoltar.setBackground(new java.awt.Color(51, 51, 255));
+        btnVoltar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCadastroLayout = new javax.swing.GroupLayout(panelCadastro);
         panelCadastro.setLayout(panelCadastroLayout);
         panelCadastroLayout.setHorizontalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addContainerGap()
+                .addComponent(btnVoltar)
+                .addGap(1, 1, 1)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCadastroLayout.createSequentialGroup()
                         .addComponent(lstErros)
@@ -204,9 +217,13 @@ public class CadastroRest extends javax.swing.JFrame {
         panelCadastroLayout.setVerticalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lstErros))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lstErros)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addGap(97, 97, 97)
@@ -338,17 +355,21 @@ public class CadastroRest extends javax.swing.JFrame {
         
         if(erros.isEmpty()){
             cadController.cadastrarCliente(cliente, 2);
-            controller.renderHome(this);
+            controller.renderHomeRest(this);
         } else {
             
             Iterator i = erros.iterator();
             
             if(i.hasNext()){
-                lstErros.setText(erros.get(0).toString());
+                lstErros.setText(erros.get(0).toString()); 
                 lstErros.setForeground(Color.red);
             }
         }
     }//GEN-LAST:event_cadastro_btnActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        controller.renderLoginRest(this);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,6 +409,7 @@ public class CadastroRest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoNasc_txt;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroupSexo;
     private javax.swing.JButton cadastro_btn;
     private javax.swing.JPasswordField confSenha;

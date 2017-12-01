@@ -64,12 +64,14 @@ public class Cadastro extends javax.swing.JFrame {
         confSenha = new javax.swing.JPasswordField();
         cadastro_btn = new javax.swing.JButton();
         lstErros = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelCadastro.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(255, 0, 0));
         title_lbl.setText("My Plate");
 
         labelNome.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -134,6 +136,16 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setBackground(new java.awt.Color(255, 0, 0));
+        btnVoltar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCadastroLayout = new javax.swing.GroupLayout(panelCadastro);
         panelCadastro.setLayout(panelCadastroLayout);
         panelCadastroLayout.setHorizontalGroup(
@@ -145,57 +157,65 @@ public class Cadastro extends javax.swing.JFrame {
             .addGroup(panelCadastroLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(senha, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                        .addComponent(nome_txt)
+                        .addComponent(email_txt)
+                        .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelDtNasc, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCadastroLayout.createSequentialGroup()
+                            .addComponent(diaNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(mesNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(anoNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(labelSenha)
+                    .addComponent(labelNome))
+                .addGap(18, 18, 18)
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCadastroLayout.createSequentialGroup()
-                        .addComponent(lstErros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
-                        .addComponent(title_lbl)
-                        .addGap(324, 324, 324))
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(confSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                            .addComponent(cpf_txt)
+                            .addComponent(sobrenome_txt))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelCadastroLayout.createSequentialGroup()
                         .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(senha, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                .addComponent(nome_txt)
-                                .addComponent(email_txt)
-                                .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelDtNasc, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCadastroLayout.createSequentialGroup()
-                                    .addComponent(diaNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(mesNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(anoNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(labelSenha)
-                            .addComponent(labelNome))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSobre)
+                            .addComponent(labelConformarSenha)
+                            .addComponent(labelDtNasc1)
+                            .addComponent(jLabel1)
                             .addGroup(panelCadastroLayout.createSequentialGroup()
-                                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(confSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                                    .addComponent(cpf_txt)
-                                    .addComponent(sobrenome_txt))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panelCadastroLayout.createSequentialGroup()
-                                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelSobre)
-                                    .addComponent(labelConformarSenha)
-                                    .addComponent(labelDtNasc1)
-                                    .addComponent(jLabel1)
-                                    .addGroup(panelCadastroLayout.createSequentialGroup()
-                                        .addComponent(radioSexoMasc)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(radioSexoFem)))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addComponent(radioSexoMasc)
+                                .addGap(18, 18, 18)
+                                .addComponent(radioSexoFem)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(panelCadastroLayout.createSequentialGroup()
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(lstErros))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
+                .addComponent(title_lbl)
+                .addGap(324, 324, 324))
         );
         panelCadastroLayout.setVerticalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lstErros))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lstErros)))
                 .addGap(128, 128, 128)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
@@ -336,6 +356,10 @@ public class Cadastro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastro_btnActionPerformed
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        controller.renderLogin(this);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -373,6 +397,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoNasc_txt;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroupSexo;
     private javax.swing.JButton cadastro_btn;
     private javax.swing.JPasswordField confSenha;

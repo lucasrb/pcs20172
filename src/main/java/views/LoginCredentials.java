@@ -55,6 +55,7 @@ public class LoginCredentials extends javax.swing.JFrame {
         retrieve_lbl1 = new javax.swing.JLabel();
         enter_btn = new javax.swing.JButton();
         erroLogin = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -65,6 +66,7 @@ public class LoginCredentials extends javax.swing.JFrame {
         panelLoginCredencial.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(255, 0, 0));
         title_lbl.setText("My Plate");
 
         email_lbl.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -110,6 +112,16 @@ public class LoginCredentials extends javax.swing.JFrame {
         erroLogin.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         erroLogin.setForeground(new java.awt.Color(255, 0, 0));
 
+        btnVoltar.setBackground(new java.awt.Color(255, 0, 0));
+        btnVoltar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLoginCredencialLayout = new javax.swing.GroupLayout(panelLoginCredencial);
         panelLoginCredencial.setLayout(panelLoginCredencialLayout);
         panelLoginCredencialLayout.setHorizontalGroup(
@@ -133,14 +145,20 @@ public class LoginCredentials extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(retrieve_lbl1))))
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                        .addGap(282, 282, 282)
+                        .addContainerGap()
+                        .addComponent(btnVoltar)
+                        .addGap(209, 209, 209)
                         .addComponent(title_lbl)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         panelLoginCredencialLayout.setVerticalGroup(
             panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar)))
                 .addGap(37, 37, 37)
                 .addComponent(erroLogin)
                 .addGap(60, 60, 60)
@@ -209,6 +227,10 @@ public class LoginCredentials extends javax.swing.JFrame {
          controller.renderEsqueciSenha(this);
     }//GEN-LAST:event_redirectEsqueciSenha
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        controller.renderLogin(this);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,6 +267,7 @@ public class LoginCredentials extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel email_lbl;
     private javax.swing.JTextField email_txt;
     private javax.swing.JButton enter_btn;

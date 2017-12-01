@@ -47,6 +47,7 @@ public class Login extends javax.swing.JFrame {
         panelLogin.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(255, 0, 0));
         title_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title_lbl.setText("My Plate");
 

@@ -11,13 +11,13 @@ import controllers.FrameController;
  *
  * @author bruno.franco
  */
-public class EsqueciSenha extends javax.swing.JFrame {
+public class EsqueciSenhaRest extends javax.swing.JFrame {
     
     private FrameController controller = new FrameController();
     /**
      * Creates new form EsqueciSenha
      */
-    public EsqueciSenha() {
+    public EsqueciSenhaRest() {
         initComponents();
     }
 
@@ -37,12 +37,14 @@ public class EsqueciSenha extends javax.swing.JFrame {
         email_txt = new javax.swing.JTextField();
         enviar_btn = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        title_lbl.setForeground(new java.awt.Color(51, 51, 255));
         title_lbl.setText("My Plate");
 
         labelInfo.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
@@ -54,12 +56,12 @@ public class EsqueciSenha extends javax.swing.JFrame {
         email_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         email_txt.setName("email_txtfield"); // NOI18N
 
-        enviar_btn.setBackground(new java.awt.Color(255, 0, 51));
+        enviar_btn.setBackground(new java.awt.Color(51, 51, 255));
         enviar_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         enviar_btn.setForeground(new java.awt.Color(255, 255, 255));
         enviar_btn.setText("Enviar");
 
-        btnVoltar.setBackground(new java.awt.Color(255, 0, 0));
+        btnVoltar.setBackground(new java.awt.Color(51, 51, 255));
         btnVoltar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
@@ -68,6 +70,10 @@ public class EsqueciSenha extends javax.swing.JFrame {
                 btnVoltarActionPerformed(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("Restaurant");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,17 +86,21 @@ public class EsqueciSenha extends javax.swing.JFrame {
                 .addComponent(title_lbl)
                 .addGap(324, 324, 324))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(email_txt)
-                    .addComponent(email_lbl)
-                    .addComponent(labelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(email_txt)
+                            .addComponent(email_lbl)
+                            .addComponent(labelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(356, 356, 356)
+                        .addComponent(jLabel2)))
                 .addContainerGap(45, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(265, 265, 265)
-                    .addComponent(enviar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(265, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enviar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(259, 259, 259))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,18 +110,17 @@ public class EsqueciSenha extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVoltar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(26, 26, 26)
                 .addComponent(labelInfo)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(email_lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 416, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(262, 262, 262)
-                    .addComponent(enviar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(262, Short.MAX_VALUE)))
+                .addGap(83, 83, 83)
+                .addComponent(enviar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 207, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,7 +140,7 @@ public class EsqueciSenha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        controller.renderCredentials(this);
+        controller.renderCredentialsRest(this);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
@@ -151,20 +160,21 @@ public class EsqueciSenha extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EsqueciSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EsqueciSenhaRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EsqueciSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EsqueciSenhaRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EsqueciSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EsqueciSenhaRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EsqueciSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EsqueciSenhaRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EsqueciSenha().setVisible(true);
+                new EsqueciSenhaRest().setVisible(true);
             }
         });
     }
@@ -174,6 +184,7 @@ public class EsqueciSenha extends javax.swing.JFrame {
     private javax.swing.JLabel email_lbl;
     private javax.swing.JTextField email_txt;
     private javax.swing.JButton enviar_btn;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelInfo;
     private javax.swing.JLabel title_lbl;

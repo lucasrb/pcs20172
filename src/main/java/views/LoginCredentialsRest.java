@@ -44,6 +44,7 @@ public class LoginCredentialsRest extends javax.swing.JFrame {
         retrieve_lbl1 = new javax.swing.JLabel();
         enter_btn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -101,6 +102,16 @@ public class LoginCredentialsRest extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
         jLabel2.setText("Restaurant");
 
+        btnVoltar.setBackground(new java.awt.Color(51, 51, 255));
+        btnVoltar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLoginCredencialLayout = new javax.swing.GroupLayout(panelLoginCredencial);
         panelLoginCredencial.setLayout(panelLoginCredencialLayout);
         panelLoginCredencialLayout.setHorizontalGroup(
@@ -108,7 +119,9 @@ public class LoginCredentialsRest extends javax.swing.JFrame {
             .addGroup(panelLoginCredencialLayout.createSequentialGroup()
                 .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                        .addGap(329, 329, 329)
+                        .addContainerGap()
+                        .addComponent(btnVoltar)
+                        .addGap(256, 256, 256)
                         .addComponent(title_lbl))
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
@@ -133,7 +146,11 @@ public class LoginCredentialsRest extends javax.swing.JFrame {
         panelLoginCredencialLayout.setVerticalGroup(
             panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginCredencialLayout.createSequentialGroup()
-                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelLoginCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLoginCredencialLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(40, 40, 40)
@@ -193,13 +210,17 @@ public class LoginCredentialsRest extends javax.swing.JFrame {
         cliente.setSenha(strSenha);
         
         if(loginController.confirmaLogin(cliente, "2")){
-            controller.renderHome(this);
+            controller.renderHomeRest(this);
         }
     }//GEN-LAST:event_enter_btnActionPerformed
 
     private void redirectEsqueciSenha(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirectEsqueciSenha
-         controller.renderEsqueciSenha(this);
+         controller.renderEsqueciSenhaRest(this);
     }//GEN-LAST:event_redirectEsqueciSenha
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        controller.renderLoginRest(this);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,6 +259,7 @@ public class LoginCredentialsRest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel email_lbl;
     private javax.swing.JTextField email_txt;
     private javax.swing.JButton enter_btn;

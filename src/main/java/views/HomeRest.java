@@ -5,20 +5,16 @@
  */
 package views;
 
-import controllers.*;
-
 /**
  *
  * @author rsbramb
  */
-public class Home extends javax.swing.JFrame {
+public class HomeRest extends javax.swing.JFrame {
 
-    private final FrameController controller = new FrameController();
-    
     /**
      * Creates new form Home
      */
-    public Home() {
+    public HomeRest() {
         initComponents();
     }
 
@@ -34,7 +30,6 @@ public class Home extends javax.swing.JFrame {
         homePanel = new javax.swing.JPanel();
         panelHome = new javax.swing.JPanel();
         title_lbl = new javax.swing.JLabel();
-        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,17 +38,8 @@ public class Home extends javax.swing.JFrame {
         panelHome.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
-        title_lbl.setForeground(new java.awt.Color(255, 0, 0));
+        title_lbl.setForeground(new java.awt.Color(51, 51, 255));
         title_lbl.setText("My Plate");
-
-        btnSair.setBackground(new java.awt.Color(255, 0, 0));
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
         panelHome.setLayout(panelHomeLayout);
@@ -62,19 +48,13 @@ public class Home extends javax.swing.JFrame {
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addGap(310, 310, 310)
                 .addComponent(title_lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
-                .addComponent(btnSair)
-                .addContainerGap())
+                .addContainerGap(343, Short.MAX_VALUE))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 509, Short.MAX_VALUE))
-            .addGroup(panelHomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSair)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
@@ -106,10 +86,6 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        controller.renderLogin(this);
-    }//GEN-LAST:event_btnSairActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -127,26 +103,26 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new HomeRest().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSair;
     private javax.swing.JPanel homePanel;
     private javax.swing.JPanel panelHome;
     private javax.swing.JLabel title_lbl;

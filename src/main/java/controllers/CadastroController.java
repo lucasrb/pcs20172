@@ -23,6 +23,8 @@ import vo.ClienteVO;
  */
 public class CadastroController {
 
+    private String localPath = System.getProperty("user.dir");
+    
     private boolean XMLExiste(String path){
         
         File arquivo = new File(path);
@@ -73,7 +75,7 @@ public class CadastroController {
         FileWriter arquivo;
         
         try {
-            arquivo = new FileWriter(new File("C:/Users/bruno.franco/Documents/NetBeansProjects/pcs20172/pcs20172/src/main/java/data/Clientes.xml"));
+            arquivo = new FileWriter(new File(localPath + "/src/main/java/data/Clientes.xml"));
             xout.setFormat(Format.getPrettyFormat());
             xout.output(doc, arquivo);
         } catch (IOException ex) {
@@ -85,9 +87,9 @@ public class CadastroController {
     
     public void cadastrarCliente(ClienteVO clienteVO, Integer tipoCliente){
         
-        if(XMLExiste("C:/Users/bruno.franco/Documents/NetBeansProjects/pcs20172/pcs20172/src/main/java/data/Clientes.xml")){
+        if(XMLExiste(localPath + "/src/main/java/data/Clientes.xml")){
             
-            File arquivoClientes = new File("C:/Users/bruno.franco/Documents/NetBeansProjects/pcs20172/pcs20172/src/main/java/data/Clientes.xml");  
+            File arquivoClientes = new File(localPath + "/src/main/java/data/Clientes.xml");  
             SAXBuilder builder = new SAXBuilder();
             
             Document doc;
