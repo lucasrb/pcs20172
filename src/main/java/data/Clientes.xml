@@ -10,4 +10,14 @@
     <Sexo>Masculino</Sexo>
     <Senha>123</Senha>
   </cliente>
+  <cliente>
+    <nome>1</nome>
+    <sobrenome>1</sobrenome>
+    <tipo>1</tipo>
+    <email>1</email>
+    <cpf>1</cpf>
+    <dataNascimento>11/11/1111</dataNascimento>
+    <Sexo>Masculino</Sexo>
+    <Senha>11</Senha>
+  </cliente>
 </clientes>

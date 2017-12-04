@@ -35,6 +35,8 @@ public class Home extends javax.swing.JFrame {
         panelHome = new javax.swing.JPanel();
         title_lbl = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,9 +46,11 @@ public class Home extends javax.swing.JFrame {
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
         title_lbl.setForeground(new java.awt.Color(255, 0, 0));
+        title_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title_lbl.setText("My Plate");
 
         btnSair.setBackground(new java.awt.Color(255, 0, 0));
+        btnSair.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -55,26 +59,56 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnPerfil.setBackground(new java.awt.Color(255, 0, 0));
+        btnPerfil.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnPerfil.setText("Perfil");
+        btnPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerfilActionPerformed(evt);
+            }
+        });
+
+        btnHome.setBackground(new java.awt.Color(255, 0, 0));
+        btnHome.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        btnHome.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
         panelHome.setLayout(panelHomeLayout);
         panelHomeLayout.setHorizontalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(310, 310, 310)
-                .addComponent(title_lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
-                .addComponent(btnSair)
+                .addContainerGap()
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 509, Short.MAX_VALUE))
-            .addGroup(panelHomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSair)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelHomeLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelHomeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(509, 509, 509))
         );
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
@@ -109,6 +143,14 @@ public class Home extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         controller.renderLogin(this);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+        controller.renderPerfil(this);
+    }//GEN-LAST:event_btnPerfilActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        controller.renderHome(this);
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +188,8 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnPerfil;
     private javax.swing.JButton btnSair;
     private javax.swing.JPanel homePanel;
     private javax.swing.JPanel panelHome;

@@ -83,4 +83,11 @@ public class FrameController {
         
         frame.dispose();
     }
+    
+    public void renderPerfil(JFrame frame) {
+        Perfil perfil = new Perfil();
+        perfil.setVisible(true);
+        
+        frame.dispose();
+    }
 }
