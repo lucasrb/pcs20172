@@ -11,13 +11,13 @@ import controllers.FrameController;
  *
  * @author bruno.franco
  */
-public class Perfil extends javax.swing.JFrame {
+public class PerfilRest extends javax.swing.JFrame {
 
     private final FrameController controller = new FrameController();
     /**
      * Creates new form Perfil
      */
-    public Perfil() {
+    public PerfilRest() {
         initComponents();
     }
 
@@ -55,6 +55,7 @@ public class Perfil extends javax.swing.JFrame {
         complementoUser1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -62,10 +63,10 @@ public class Perfil extends javax.swing.JFrame {
         perfilPAnel.setBackground(new java.awt.Color(255, 255, 255));
 
         title_lbl.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
-        title_lbl.setForeground(new java.awt.Color(255, 0, 0));
+        title_lbl.setForeground(new java.awt.Color(51, 51, 255));
         title_lbl.setText("My Plate");
 
-        btnHome.setBackground(new java.awt.Color(255, 0, 0));
+        btnHome.setBackground(new java.awt.Color(51, 51, 255));
         btnHome.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
         btnHome.setText("Home");
@@ -75,7 +76,7 @@ public class Perfil extends javax.swing.JFrame {
             }
         });
 
-        btnPerfil.setBackground(new java.awt.Color(255, 0, 0));
+        btnPerfil.setBackground(new java.awt.Color(51, 51, 255));
         btnPerfil.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
         btnPerfil.setText("Perfil");
@@ -85,7 +86,7 @@ public class Perfil extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setBackground(new java.awt.Color(255, 0, 0));
+        btnSair.setBackground(new java.awt.Color(51, 51, 255));
         btnSair.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
@@ -115,7 +116,7 @@ public class Perfil extends javax.swing.JFrame {
         sexoUsuario.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         sexoUsuario.setText("Sexo:");
 
-        editarPerfil.setBackground(new java.awt.Color(255, 0, 0));
+        editarPerfil.setBackground(new java.awt.Color(51, 51, 255));
         editarPerfil.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         editarPerfil.setForeground(new java.awt.Color(255, 255, 255));
         editarPerfil.setText("Editar");
@@ -178,7 +179,7 @@ public class Perfil extends javax.swing.JFrame {
         bairroUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         bairroUser.setText("Bairro:");
 
-        editarPerfil1.setBackground(new java.awt.Color(255, 0, 0));
+        editarPerfil1.setBackground(new java.awt.Color(51, 51, 255));
         editarPerfil1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         editarPerfil1.setForeground(new java.awt.Color(255, 255, 255));
         editarPerfil1.setText("Editar");
@@ -246,15 +247,19 @@ public class Perfil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ver histórico de compras");
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setBackground(new java.awt.Color(51, 51, 255));
         jButton2.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Visualizar Favoritos");
+
+        jLabel2.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("Restaurant");
 
         javax.swing.GroupLayout perfilPAnelLayout = new javax.swing.GroupLayout(perfilPAnel);
         perfilPAnel.setLayout(perfilPAnelLayout);
@@ -267,8 +272,13 @@ public class Perfil extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, perfilPAnelLayout.createSequentialGroup()
                         .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(title_lbl)
-                        .addGap(232, 232, 232)
+                        .addGroup(perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, perfilPAnelLayout.createSequentialGroup()
+                                .addComponent(title_lbl)
+                                .addGap(231, 231, 231))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, perfilPAnelLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(265, 265, 265)))
                         .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -283,11 +293,15 @@ public class Perfil extends javax.swing.JFrame {
             perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(perfilPAnelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(perfilPAnelLayout.createSequentialGroup()
+                        .addComponent(title_lbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)))
                 .addGap(58, 58, 58)
                 .addComponent(userArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -342,27 +356,21 @@ public class Perfil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Perfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Perfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Perfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Perfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilRest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Perfil().setVisible(true);
+                new PerfilRest().setVisible(true);
             }
         });
     }
@@ -385,6 +393,7 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel imgUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JLabel numUser;
     private javax.swing.JPanel perfilPAnel;
