@@ -7,8 +7,8 @@
     <email>brunobfranco@gmail.com</email>
     <cpf>15555025718</cpf>
     <dataNascimento>17/02/1997</dataNascimento>
-    <Sexo>Masculino</Sexo>
-    <Senha>123</Senha>
+    <sexo>Masculino</sexo>
+    <senha>123</senha>
   </cliente>
   <cliente>
     <nome>1</nome>
@@ -17,7 +17,7 @@
     <email>1</email>
     <cpf>1</cpf>
     <dataNascimento>11/11/1111</dataNascimento>
-    <Sexo>Masculino</Sexo>
-    <Senha>11</Senha>
+    <sexo>Masculino</sexo>
+    <senha>11</senha>
   </cliente>
 </clientes>
