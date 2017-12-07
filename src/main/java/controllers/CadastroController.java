@@ -45,8 +45,8 @@ public class CadastroController {
         Element email = new Element("email");
         Element cpf = new Element("cpf");
         Element dtNasc = new Element("dataNascimento");
-        Element sexo = new Element("sexo");
-        Element senha = new Element("senha");
+        Element sexo = new Element("Sexo");
+        Element senha = new Element("Senha");
 
         nome.setText(clienteVO.getNome());
         sobrenome.setText(clienteVO.getSobrenome());

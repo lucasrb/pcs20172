@@ -34,8 +34,8 @@ public class Login extends javax.swing.JFrame {
         login_view = new javax.swing.JPanel();
         panelLogin = new javax.swing.JPanel();
         title_lbl = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        btnCadastro = new javax.swing.JButton();
+        login_btn1 = new javax.swing.JButton();
+        login_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         redirectRestLink = new javax.swing.JLabel();
@@ -51,23 +51,23 @@ public class Login extends javax.swing.JFrame {
         title_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title_lbl.setText("My Plate");
 
-        btnLogin.setBackground(new java.awt.Color(255, 0, 51));
-        btnLogin.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        login_btn1.setBackground(new java.awt.Color(255, 0, 51));
+        login_btn1.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        login_btn1.setForeground(new java.awt.Color(255, 255, 255));
+        login_btn1.setText("Login");
+        login_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                login_btn1ActionPerformed(evt);
             }
         });
 
-        btnCadastro.setBackground(new java.awt.Color(255, 0, 51));
-        btnCadastro.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        btnCadastro.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastro.setText("Cadastre-se");
-        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+        login_btn.setBackground(new java.awt.Color(255, 0, 51));
+        login_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        login_btn.setForeground(new java.awt.Color(255, 255, 255));
+        login_btn.setText("Cadastre-se");
+        login_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroActionPerformed(evt);
+                login_btnActionPerformed(evt);
             }
         });
 
@@ -99,12 +99,12 @@ public class Login extends javax.swing.JFrame {
                                 .addGap(263, 263, 263)
                                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelLoginLayout.createSequentialGroup()
                                 .addGap(262, 262, 262)
                                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(login_btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 265, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -118,11 +118,11 @@ public class Login extends javax.swing.JFrame {
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(login_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -155,13 +155,13 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void login_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn1ActionPerformed
         controller.renderCredentials(this);
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }//GEN-LAST:event_login_btn1ActionPerformed
 
-    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
         controller.renderCadastro(this);
-    }//GEN-LAST:event_btnCadastroActionPerformed
+    }//GEN-LAST:event_login_btnActionPerformed
 
     private void redirectRestLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirectRestLinkMouseClicked
         FrameController controller = new FrameController();
@@ -169,10 +169,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_redirectRestLinkMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastro;
-    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton login_btn;
+    private javax.swing.JButton login_btn1;
     private javax.swing.JPanel login_view;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JLabel redirectRestLink;

@@ -72,14 +72,14 @@
                                       <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnCadastro" min="-2" pref="270" max="-2" attributes="0"/>
+                                          <Component id="login_btn" min="-2" pref="270" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="title_lbl" pref="270" max="32767" attributes="0"/>
-                                          <Component id="btnLogin" max="32767" attributes="0"/>
+                                          <Component id="login_btn1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -101,11 +101,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="title_lbl" min="-2" pref="91" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="btnLogin" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="login_btn1" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCadastro" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="login_btn" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace pref="129" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -129,7 +129,7 @@
                 <Property name="text" type="java.lang.String" value="My Plate"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLogin">
+            <Component class="javax.swing.JButton" name="login_btn1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -143,10 +143,10 @@
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_btn1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCadastro">
+            <Component class="javax.swing.JButton" name="login_btn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -160,7 +160,7 @@
                 <Property name="text" type="java.lang.String" value="Cadastre-se"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_btnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
