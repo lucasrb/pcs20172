@@ -62,7 +62,14 @@ public class EditarPerfil extends javax.swing.JFrame {
             }
             senha.setText(root.getChildText("senha"));
             confSenha.setText(root.getChildText("senha"));
-           
+            rua_txt.setText(root.getChild("endereco").getChildText("rua"));
+            numero_txt.setText(root.getChild("endereco").getChildText("numero"));
+            bairro_txt1.setText(root.getChild("endereco").getChildText("bairro"));
+            cep_txt.setText(root.getChild("endereco").getChildText("cep"));
+            complemento_txt.setText(root.getChild("endereco").getChildText("complemento"));
+            cidade_txt.setText(root.getChild("endereco").getChildText("cidade"));
+            estado_txt.setText(root.getChild("endereco").getChildText("estado"));
+            ptReferencia_txt.setText(root.getChild("endereco").getChildText("ptReferencia"));
             
             
             
@@ -83,6 +90,7 @@ public class EditarPerfil extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroupSexo = new javax.swing.ButtonGroup();
+        bairro_txt = new javax.swing.JTextField();
         panelCadastro = new javax.swing.JPanel();
         title_lbl = new javax.swing.JLabel();
         labelNome = new javax.swing.JLabel();
@@ -109,6 +117,24 @@ public class EditarPerfil extends javax.swing.JFrame {
         btnEditarCadastro = new javax.swing.JButton();
         lstErros = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
+        labelRua = new javax.swing.JLabel();
+        rua_txt = new javax.swing.JTextField();
+        labelNumero = new javax.swing.JLabel();
+        labelBairro = new javax.swing.JLabel();
+        labelCEP = new javax.swing.JLabel();
+        labelCidade = new javax.swing.JLabel();
+        labelComplemento = new javax.swing.JLabel();
+        labelPtReferencia = new javax.swing.JLabel();
+        labelEstado = new javax.swing.JLabel();
+        numero_txt = new javax.swing.JTextField();
+        cep_txt = new javax.swing.JTextField();
+        complemento_txt = new javax.swing.JTextField();
+        cidade_txt = new javax.swing.JTextField();
+        estado_txt = new javax.swing.JTextField();
+        ptReferencia_txt = new javax.swing.JTextField();
+        bairro_txt1 = new javax.swing.JTextField();
+
+        bairro_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,54 +216,73 @@ public class EditarPerfil extends javax.swing.JFrame {
             }
         });
 
+        labelRua.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelRua.setText("Rua:");
+
+        rua_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        labelNumero.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelNumero.setText("Número:");
+
+        labelBairro.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelBairro.setText("Bairro:");
+
+        labelCEP.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelCEP.setText("CEP:");
+
+        labelCidade.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelCidade.setText("Cidade:");
+
+        labelComplemento.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelComplemento.setText("Complemento:");
+
+        labelPtReferencia.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelPtReferencia.setText("Ponte de Referência:");
+
+        labelEstado.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        labelEstado.setText("Estado:");
+
+        numero_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        cep_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        complemento_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        cidade_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        estado_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        ptReferencia_txt.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
+        bairro_txt1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout panelCadastroLayout = new javax.swing.GroupLayout(panelCadastro);
         panelCadastro.setLayout(panelCadastroLayout);
         panelCadastroLayout.setHorizontalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(btnEditarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(senha, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                        .addComponent(nome_txt)
-                        .addComponent(email_txt)
-                        .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelDtNasc, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCadastroLayout.createSequentialGroup()
-                            .addComponent(diaNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(mesNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(anoNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(labelSenha)
-                    .addComponent(labelNome))
-                .addGap(18, 18, 18)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCadastroLayout.createSequentialGroup()
-                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(confSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                            .addComponent(cpf_txt)
-                            .addComponent(sobrenome_txt))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(245, 245, 245)
+                        .addComponent(btnEditarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(396, 396, 396)
                         .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelSobre)
-                            .addComponent(labelConformarSenha)
-                            .addComponent(labelDtNasc1)
-                            .addComponent(jLabel1)
                             .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addComponent(labelDtNasc1)
+                                .addGap(20, 20, 20)
                                 .addComponent(radioSexoMasc)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioSexoFem)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radioSexoFem))
+                            .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addComponent(labelSobre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sobrenome_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cpf_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelCadastroLayout.createSequentialGroup()
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCadastroLayout.createSequentialGroup()
@@ -245,59 +290,157 @@ public class EditarPerfil extends javax.swing.JFrame {
                         .addComponent(lstErros))
                     .addGroup(panelCadastroLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnVoltar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
-                .addComponent(title_lbl)
-                .addGap(324, 324, 324))
+                        .addComponent(btnVoltar)
+                        .addGap(257, 257, 257)
+                        .addComponent(title_lbl))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelNome)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nome_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelDtNasc)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(diaNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(mesNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(anoNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelEmail)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelSenha)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(senha)))
+                                .addGap(59, 59, 59)
+                                .addComponent(labelConformarSenha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addComponent(labelEstado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(estado_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelPtReferencia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ptReferencia_txt))
+                            .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelComplemento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(complemento_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(labelBairro)
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelRua)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rua_txt)))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelCidade)
+                                            .addComponent(labelCEP))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cep_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cidade_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                                        .addComponent(labelNumero)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(numero_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelCadastroLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(bairro_txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         panelCadastroLayout.setVerticalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCadastroLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lstErros)))
-                .addGap(128, 128, 128)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNome)
-                    .addComponent(labelSobre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nome_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sobrenome_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelEmail)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpf_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelDtNasc1)
-                    .addComponent(labelDtNasc))
+                        .addGap(53, 53, 53)
+                        .addComponent(lstErros))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelNome)
+                            .addComponent(nome_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSobre)
+                            .addComponent(sobrenome_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioSexoMasc)
-                    .addComponent(radioSexoFem)
-                    .addComponent(diaNasc_txt)
-                    .addComponent(mesNasc_txt)
-                    .addComponent(jLabel2)
-                    .addComponent(anoNasc_txt)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(labelEmail)
+                    .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(diaNasc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelDtNasc)
+                            .addComponent(jLabel2)
+                            .addComponent(mesNasc_txt)
+                            .addComponent(jLabel3)
+                            .addComponent(anoNasc_txt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelSenha)
+                            .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelRua)
+                            .addComponent(rua_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNumero)
+                            .addComponent(numero_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelBairro)
+                            .addComponent(bairro_txt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11))
+                    .addGroup(panelCadastroLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioSexoFem)
+                            .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(labelDtNasc1)
+                                .addComponent(radioSexoMasc)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelConformarSenha))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCEP)
+                            .addComponent(cep_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)))
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelComplemento)
+                    .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(complemento_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelCidade)
+                        .addComponent(cidade_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSenha)
-                    .addComponent(labelConformarSenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(confSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(labelEstado)
+                    .addComponent(estado_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPtReferencia)
+                    .addComponent(ptReferencia_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
                 .addComponent(btnEditarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -384,6 +527,15 @@ public class EditarPerfil extends javax.swing.JFrame {
         String snhconf = new String(confSnh);
         cliente.setCnfSenha(snhconf);  
         
+        cliente.setRua(rua_txt.getText());
+        cliente.setNumero(numero_txt.getText());
+        cliente.setBairro(bairro_txt1.getText());
+        cliente.setCep(cep_txt.getText());
+        cliente.setComplemento(complemento_txt.getText());
+        cliente.setCidade(cidade_txt.getText());
+        cliente.setEstado(estado_txt.getText());
+        cliente.setPtReferencia(ptReferencia_txt.getText());
+        
         List erros = validateCliente();
         
         if(erros.isEmpty()){
@@ -444,29 +596,46 @@ public class EditarPerfil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoNasc_txt;
+    private javax.swing.JTextField bairro_txt;
+    private javax.swing.JTextField bairro_txt1;
     private javax.swing.JButton btnEditarCadastro;
     private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroupSexo;
+    private javax.swing.JTextField cep_txt;
+    private javax.swing.JTextField cidade_txt;
+    private javax.swing.JTextField complemento_txt;
     private javax.swing.JPasswordField confSenha;
     private javax.swing.JTextField cpf_txt;
     private javax.swing.JTextField diaNasc_txt;
     private javax.swing.JTextField email_txt;
+    private javax.swing.JTextField estado_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel labelBairro;
+    private javax.swing.JLabel labelCEP;
+    private javax.swing.JLabel labelCidade;
+    private javax.swing.JLabel labelComplemento;
     private javax.swing.JLabel labelConformarSenha;
     private javax.swing.JLabel labelDtNasc;
     private javax.swing.JLabel labelDtNasc1;
     private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelEstado;
     private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelNumero;
+    private javax.swing.JLabel labelPtReferencia;
+    private javax.swing.JLabel labelRua;
     private javax.swing.JLabel labelSenha;
     private javax.swing.JLabel labelSobre;
     private javax.swing.JLabel lstErros;
     private javax.swing.JTextField mesNasc_txt;
     private javax.swing.JTextField nome_txt;
+    private javax.swing.JTextField numero_txt;
     private javax.swing.JPanel panelCadastro;
+    private javax.swing.JTextField ptReferencia_txt;
     private javax.swing.JRadioButton radioSexoFem;
     private javax.swing.JRadioButton radioSexoMasc;
+    private javax.swing.JTextField rua_txt;
     private javax.swing.JPasswordField senha;
     private javax.swing.JTextField sobrenome_txt;
     private javax.swing.JLabel title_lbl;

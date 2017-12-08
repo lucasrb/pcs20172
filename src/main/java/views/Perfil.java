@@ -47,7 +47,14 @@ public class Perfil extends javax.swing.JFrame {
             cpfUsuario.setText("CPF: " + root.getChildText("cpf"));
             dtNascUsuario.setText("Data de Nascimento: " + root.getChildText("dataNascimento"));
             sexoUsuario.setText("Sexo: " + root.getChildText("sexo"));
-            
+            ruaUser.setText("Rua: " + root.getChild("endereco").getChildText("rua"));
+            numUser.setText("Numero: " + root.getChild("endereco").getChildText("numero"));
+            bairroUser.setText("Bairro: " + root.getChild("endereco").getChildText("bairro"));
+            cepUser.setText("CEP: " + root.getChild("endereco").getChildText("cep"));
+            complementoUser.setText("Complemento: " + root.getChild("endereco").getChildText("complemento"));
+            cidadeUser.setText("Cidade: " + root.getChild("endereco").getChildText("cidade"));
+            estadoUser.setText("Estado: " + root.getChild("endereco").getChildText("estado"));
+            ptReferenciaUser.setText("Ponto de Referência: " + root.getChild("endereco").getChildText("ptReferencia"));
             
             
         } catch (JDOMException ex) {
@@ -78,16 +85,14 @@ public class Perfil extends javax.swing.JFrame {
         dtNascUsuario = new javax.swing.JLabel();
         sexoUsuario = new javax.swing.JLabel();
         editarPerfil = new javax.swing.JButton();
-        userArea1 = new javax.swing.JPanel();
         ruaUser = new javax.swing.JLabel();
-        numUser = new javax.swing.JLabel();
         cepUser = new javax.swing.JLabel();
+        numUser = new javax.swing.JLabel();
         complementoUser = new javax.swing.JLabel();
-        bairroUser = new javax.swing.JLabel();
-        editarPerfil1 = new javax.swing.JButton();
-        cidadeUser = new javax.swing.JLabel();
         estadoUser = new javax.swing.JLabel();
-        complementoUser1 = new javax.swing.JLabel();
+        bairroUser = new javax.swing.JLabel();
+        cidadeUser = new javax.swing.JLabel();
+        ptReferenciaUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -158,6 +163,30 @@ public class Perfil extends javax.swing.JFrame {
             }
         });
 
+        ruaUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        ruaUser.setText("Rua:");
+
+        cepUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        cepUser.setText("CEP:");
+
+        numUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        numUser.setText("N°:");
+
+        complementoUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        complementoUser.setText("Complemento:");
+
+        estadoUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        estadoUser.setText("Estado:");
+
+        bairroUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        bairroUser.setText("Bairro:");
+
+        cidadeUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        cidadeUser.setText("Cidade:");
+
+        ptReferenciaUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        ptReferenciaUser.setText("Ponto de Referencia:");
+
         javax.swing.GroupLayout userAreaLayout = new javax.swing.GroupLayout(userArea);
         userArea.setLayout(userAreaLayout);
         userAreaLayout.setHorizontalGroup(
@@ -165,120 +194,69 @@ public class Perfil extends javax.swing.JFrame {
             .addGroup(userAreaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userAreaLayout.createSequentialGroup()
-                        .addComponent(sexoUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editarPerfil))
+                    .addGroup(userAreaLayout.createSequentialGroup()
+                        .addComponent(estadoUser)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(userAreaLayout.createSequentialGroup()
                         .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomeUsuario)
-                            .addComponent(emailUsuario)
-                            .addComponent(cpfUsuario)
-                            .addComponent(dtNascUsuario))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userAreaLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(editarPerfil))
+                            .addGroup(userAreaLayout.createSequentialGroup()
+                                .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(userAreaLayout.createSequentialGroup()
+                                        .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cpfUsuario)
+                                            .addComponent(dtNascUsuario)
+                                            .addComponent(sexoUsuario)
+                                            .addComponent(emailUsuario)
+                                            .addComponent(bairroUser)
+                                            .addComponent(cepUser))
+                                        .addGap(307, 307, 307)
+                                        .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cidadeUser)
+                                            .addComponent(complementoUser)
+                                            .addComponent(ptReferenciaUser)
+                                            .addComponent(numUser)))
+                                    .addComponent(nomeUsuario)
+                                    .addComponent(ruaUser))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         userAreaLayout.setVerticalGroup(
             userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userAreaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(nomeUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(emailUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(cpfUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(dtNascUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(emailUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cpfUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dtNascUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sexoUsuario)
+                .addGap(28, 28, 28)
                 .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarPerfil)
-                    .addComponent(sexoUsuario))
-                .addContainerGap())
-        );
-
-        userArea1.setBackground(new java.awt.Color(255, 255, 255));
-        userArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ruaUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        ruaUser.setText("Rua:");
-
-        numUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        numUser.setText("N°:");
-
-        cepUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        cepUser.setText("CEP:");
-
-        complementoUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        complementoUser.setText("Complemento:");
-
-        bairroUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        bairroUser.setText("Bairro:");
-
-        editarPerfil1.setBackground(new java.awt.Color(255, 0, 0));
-        editarPerfil1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
-        editarPerfil1.setForeground(new java.awt.Color(255, 255, 255));
-        editarPerfil1.setText("Editar");
-
-        cidadeUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        cidadeUser.setText("Cidade:");
-
-        estadoUser.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        estadoUser.setText("Estado:");
-
-        complementoUser1.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        complementoUser1.setText("Ponto de Referencia:");
-
-        javax.swing.GroupLayout userArea1Layout = new javax.swing.GroupLayout(userArea1);
-        userArea1.setLayout(userArea1Layout);
-        userArea1Layout.setHorizontalGroup(
-            userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userArea1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(userArea1Layout.createSequentialGroup()
-                        .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cepUser)
-                            .addComponent(complementoUser1)
-                            .addComponent(bairroUser)
-                            .addComponent(ruaUser))
-                        .addGap(304, 304, 304)
-                        .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(userArea1Layout.createSequentialGroup()
-                                .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cidadeUser)
-                                    .addGroup(userArea1Layout.createSequentialGroup()
-                                        .addComponent(complementoUser)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(estadoUser)))
-                                .addGap(158, 158, 158))
-                            .addGroup(userArea1Layout.createSequentialGroup()
-                                .addComponent(numUser)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userArea1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(editarPerfil1)
-                        .addGap(10, 10, 10))))
-        );
-        userArea1Layout.setVerticalGroup(
-            userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userArea1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ruaUser)
                     .addComponent(numUser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(complementoUser)
+                    .addComponent(bairroUser))
+                .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userAreaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(cepUser))
+                    .addGroup(userAreaLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(cidadeUser)))
+                .addGap(18, 18, 18)
+                .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(estadoUser)
-                    .addComponent(cepUser)
-                    .addComponent(complementoUser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addGroup(userArea1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bairroUser)
-                    .addComponent(cidadeUser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(complementoUser1)
-                .addGap(29, 29, 29)
-                .addComponent(editarPerfil1)
+                    .addComponent(ptReferenciaUser))
+                .addGap(88, 88, 88)
+                .addComponent(editarPerfil)
                 .addContainerGap())
         );
 
@@ -308,7 +286,6 @@ public class Perfil extends javax.swing.JFrame {
                         .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(userArea1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(perfilPAnelLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
@@ -326,12 +303,10 @@ public class Perfil extends javax.swing.JFrame {
                     .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addComponent(userArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(userArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -415,11 +390,9 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel cepUser;
     private javax.swing.JLabel cidadeUser;
     private javax.swing.JLabel complementoUser;
-    private javax.swing.JLabel complementoUser1;
     private javax.swing.JLabel cpfUsuario;
     private javax.swing.JLabel dtNascUsuario;
     private javax.swing.JButton editarPerfil;
-    private javax.swing.JButton editarPerfil1;
     private javax.swing.JLabel emailUsuario;
     private javax.swing.JLabel estadoUser;
     private javax.swing.JButton jButton1;
@@ -427,10 +400,10 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JLabel numUser;
     private javax.swing.JPanel perfilPAnel;
+    private javax.swing.JLabel ptReferenciaUser;
     private javax.swing.JLabel ruaUser;
     private javax.swing.JLabel sexoUsuario;
     private javax.swing.JLabel title_lbl;
     private javax.swing.JPanel userArea;
-    private javax.swing.JPanel userArea1;
     // End of variables declaration//GEN-END:variables
 }

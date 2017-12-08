@@ -62,6 +62,14 @@ public class LoginController {
                                     clienteVO.setDtNasc(cliente.getChildText("dataNascimento"));
                                     clienteVO.setTipo(tipo);
                                     clienteVO.setSexo(cliente.getChildText("sexo"));
+                                    clienteVO.setRua(cliente.getChild("endereco").getChildText("rua"));
+                                    clienteVO.setNumero(cliente.getChild("endereco").getChildText("numero"));
+                                    clienteVO.setBairro(cliente.getChild("endereco").getChildText("bairro"));
+                                    clienteVO.setComplemento(cliente.getChild("endereco").getChildText("complemento"));
+                                    clienteVO.setCep(cliente.getChild("endereco").getChildText("cep"));
+                                    clienteVO.setCidade(cliente.getChild("endereco").getChildText("cidade"));
+                                    clienteVO.setEstado(cliente.getChild("endereco").getChildText("estado"));
+                                    clienteVO.setPtReferencia(cliente.getChild("endereco").getChildText("ptReferencia"));
                                     
                                     salvaDadosUsuario(clienteVO);
 
@@ -92,6 +100,36 @@ public class LoginController {
         Element dtNasc = new Element("dataNascimento");
         Element sexo = new Element("sexo");
         Element senha = new Element("senha");
+        Element endereco = new Element("endereco");
+        Element rua = new Element("rua");
+        Element numero = new Element("numero");
+        Element bairro = new Element("bairro");
+        Element complemento = new Element("complemento");
+        Element cep = new Element("cep");
+        Element cidade = new Element("cidade");
+        Element estado = new Element("estado");
+        Element ptReferencia = new Element("ptReferencia");
+        
+        rua.setText(clienteVO.getRua());
+        numero.setText(clienteVO.getNumero());
+        bairro.setText(clienteVO.getBairro());
+        complemento.setText(clienteVO.getComplemento());
+        cep.setText(clienteVO.getCep());
+        cidade.setText(clienteVO.getCidade());
+        estado.setText(clienteVO.getEstado());
+        ptReferencia.setText(clienteVO.getPtReferencia());
+        
+        
+        
+        endereco.addContent(rua);
+        endereco.addContent(numero);
+        endereco.addContent(bairro);
+        endereco.addContent(complemento);
+        endereco.addContent(cep);
+        endereco.addContent(cidade);
+        endereco.addContent(estado);
+        endereco.addContent(ptReferencia);
+
 
         nome.setText(clienteVO.getNome());
         sobrenome.setText(clienteVO.getSobrenome());
@@ -110,6 +148,7 @@ public class LoginController {
         cliente.addContent(dtNasc);
         cliente.addContent(sexo);
         cliente.addContent(senha);
+        cliente.addContent(endereco);
             
         Document clientesXML = new Document(cliente);
             
