@@ -16,6 +16,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import vo.CardapioVO;
 import vo.EnderecoVO;
 import vo.RestauranteVO;
 
@@ -46,8 +47,9 @@ public class RestauranteDAO {
                 String descricao = restaurante.getChildText("descricao");
 
                 List<EnderecoVO> enderecos = EnderecoDAO.getEnderecos(id);
+                List<CardapioVO> cardapio = CardapioDAO.getRestaurantes(id);
 
-                RestauranteVO vo = new RestauranteVO(id, nome, telefone, descricao, enderecos);
+                RestauranteVO vo = new RestauranteVO(id, nome, telefone, descricao, enderecos, cardapio);
                 list.add(vo);
             }
         } catch (IOException ex) {

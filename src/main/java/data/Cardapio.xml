@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cardapio>
+    <prato>
+        <id>1</id>
+        <idRestaurante>1</idRestaurante>
+        <nome>Bife com Fritas</nome>
+        <descricao>Um saboreoso bife com bastante batata frita</descricao>
+        <preco>60</preco>
+    </prato>
+    <prato>
+        <id>1</id>
+        <idRestaurante>1</idRestaurante>
+        <nome>Salada</nome>
+        <descricao>Prato bem verde para quem não deseja gastar muito e comer de forma saudável</descricao>
+        <preco>20</preco>
+    </prato>
+</cardapio>

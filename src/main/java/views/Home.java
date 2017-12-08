@@ -7,8 +7,11 @@ package views;
 
 import controllers.*;
 import dao.RestauranteDAO;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import lombok.Getter;
 import vo.RestauranteVO;
 
 /**
@@ -19,6 +22,9 @@ public class Home extends javax.swing.JFrame {
 
     private final FrameController controller = new FrameController();
 
+    @Getter
+    private List<RestauranteVO> restaurantes;
+
     /**
      * Creates new form Home
      */
@@ -26,17 +32,32 @@ public class Home extends javax.swing.JFrame {
         initComponents();
 
         this.addRowToJTable();
+        this.renderDetailsOnClick();
     }
 
-    public void addRowToJTable() {
-        List<RestauranteVO> list = RestauranteDAO.getRestaurantes();
+    private void renderDetailsOnClick() {
+        final Home athis = this;
+
+        this.tblRestaurantes.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int row = tblRestaurantes.getSelectedRow();
+                RestauranteVO restaurante = athis.getRestaurantes().get(row);
+                if (e.getClickCount() == 2) {
+                    new HomeController().renderRestaurantDetails(athis, restaurante);
+                }
+            }
+        });
+    }
+
+    private void addRowToJTable() {
+        this.restaurantes = RestauranteDAO.getRestaurantes();
         DefaultTableModel model = (DefaultTableModel) tblRestaurantes.getModel();
 
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < this.restaurantes.size(); i++) {
             Object rowData[] = new Object[3];
-            rowData[0] = list.get(i).getNome();
-            rowData[1] = list.get(i).getTelefone();
-            rowData[2] = list.get(i).getDescricao();
+            rowData[0] = this.restaurantes.get(i).getNome();
+            rowData[1] = this.restaurantes.get(i).getTelefone();
+            rowData[2] = this.restaurantes.get(i).getDescricao();
             model.addRow(rowData);
         }
     }
@@ -127,22 +148,32 @@ public class Home extends javax.swing.JFrame {
         txtFiltrar.setToolTipText("Escreva aqui o filtro");
         txtFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btnFiltrar.setBackground(new java.awt.Color(255, 0, 0));
         btnFiltrar.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        btnFiltrar.setForeground(new java.awt.Color(255, 255, 255));
         btnFiltrar.setText("Filtrar");
 
         lblSugestoes.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         lblSugestoes.setText("Sugestões:");
 
+        btnCategoria.setBackground(new java.awt.Color(255, 0, 0));
         btnCategoria.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        btnCategoria.setForeground(new java.awt.Color(255, 255, 255));
         btnCategoria.setText("Categoria");
 
+        btnMelhorAvaliacao1.setBackground(new java.awt.Color(255, 0, 0));
         btnMelhorAvaliacao1.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        btnMelhorAvaliacao1.setForeground(new java.awt.Color(255, 255, 255));
         btnMelhorAvaliacao1.setText("Melhor Avaliacao");
 
+        btnLocalizacao.setBackground(new java.awt.Color(255, 0, 0));
         btnLocalizacao.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        btnLocalizacao.setForeground(new java.awt.Color(255, 255, 255));
         btnLocalizacao.setText("Localizacao");
 
+        btnPreco.setBackground(new java.awt.Color(255, 0, 0));
         btnPreco.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        btnPreco.setForeground(new java.awt.Color(255, 255, 255));
         btnPreco.setText("Preço");
 
         pnlRestaurantes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -179,8 +210,8 @@ public class Home extends javax.swing.JFrame {
             pnlRestaurantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRestaurantesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(pnlRestaurantes);
@@ -210,7 +241,7 @@ public class Home extends javax.swing.JFrame {
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                                .addComponent(title_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,7 +256,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3))))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 2, Short.MAX_VALUE))))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,11 +303,11 @@ public class Home extends javax.swing.JFrame {
         homePanel.setLayout(homePanelLayout);
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -327,16 +358,24 @@ public class Home extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
