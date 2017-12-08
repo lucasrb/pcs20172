@@ -8,4 +8,44 @@
         <numero>17</numero>
         <complemento> Bloco A </complemento>
     </endereco>
+    <endereco>
+        <id>5</id>
+        <idRestaurante>2</idRestaurante>
+        <cep>21061789</cep>
+        <rua>Norte Shopping</rua>
+        <numero>80</numero>
+        <complemento />
+    </endereco>
+    <endereco>
+        <id>6</id>
+        <idRestaurante>3</idRestaurante>
+        <cep>22270000</cep>
+        <rua>Rua Voluntários da Pátria</rua>
+        <numero>59</numero>
+        <complemento>Perto do metrô de Botafogo</complemento>
+    </endereco>
+    <endereco>
+        <id>7</id>
+        <idRestaurante>4</idRestaurante>
+        <cep>22270000</cep>
+        <rua>R. São João Gualberto 14</rua>
+        <numero>14</numero>
+        <complemento>Loja B</complemento>
+    </endereco>
+    <endereco>
+        <id>7</id>
+        <idRestaurante>5</idRestaurante>
+        <cep>21211800</cep>
+        <rua>Tv. da Brandura</rua>
+        <numero>506</numero>
+        <complemento />
+    </endereco>
+    <endereco>
+        <id>8</id>
+        <idRestaurante>3</idRestaurante>
+        <cep>11234564</cep>
+        <rua>Shopping Nova America</rua>
+        <numero>10</numero>
+        <complemento/>
+    </endereco>
 </enderecos>

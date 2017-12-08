@@ -86,7 +86,7 @@ public class Perfil extends javax.swing.JFrame {
         btnHome.setBackground(new java.awt.Color(255, 0, 0));
         btnHome.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
-        btnHome.setText("Home");
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/008-home.png"))); // NOI18N
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
@@ -96,7 +96,7 @@ public class Perfil extends javax.swing.JFrame {
         btnPerfil.setBackground(new java.awt.Color(255, 0, 0));
         btnPerfil.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        btnPerfil.setText("Perfil");
+        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         btnPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPerfilActionPerformed(evt);
@@ -106,7 +106,7 @@ public class Perfil extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(255, 0, 0));
         btnSair.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/012-sign-out-option.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);

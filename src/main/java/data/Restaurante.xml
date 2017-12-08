@@ -2,14 +2,32 @@
 <restaurantes>
     <restaurante>
         <id>1</id>
-        <nome>Rato's Food </nome>
+        <nome>Rato's Food</nome>
         <telefone> 219182738994 </telefone>
         <descricao>Melhor Bar da Zona Sul</descricao>
     </restaurante>
     <restaurante>
         <id>2</id>
-        <nome> BiBi </nome>
-        <telefone> 21982278349 </telefone>
+        <nome>BiBi</nome>
+        <telefone>21982278349</telefone>
         <descricao>Restaurante com propaganda no metrô</descricao>
+    </restaurante>
+    <restaurante>
+        <id>3</id>
+        <nome>Burguer King Botafogo</nome>
+        <telefone>219987865645</telefone>
+        <descricao>Rei dos Burguers</descricao>
+    </restaurante>
+    <restaurante>
+        <id>4</id>
+        <nome>Subway Vila da Penha</nome>
+        <telefone>21998785676</telefone>
+        <descricao>Monte seu Sanduíche</descricao>
+    </restaurante>
+    <restaurante>
+        <id>5</id>
+        <nome>McDonald's Bicão</nome>
+        <telefone>2133916784</telefone>
+        <descricao>24h por dia, 7 dias na semana</descricao>
     </restaurante>
 </restaurantes>
