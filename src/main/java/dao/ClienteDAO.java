@@ -45,7 +45,13 @@ public class ClienteDAO {
         return false;
     }
 
-    private static Element preencheElementoXML(ClienteVO clienteVO, Integer tipoCliente) {
+    /**
+     * Preenche os elementos XML referentes a um cliente
+     * @param clienteVO VO do cliente que será armazenado em XML
+     * @param tipoUsuario Tipo do usuário se é 1 (Cliente) ou 2 (Restaurante)
+     * @return 
+     */
+    private static Element preencheElementoXML(ClienteVO clienteVO, Integer tipoUsuario) {
 
         Element cliente = new Element("cliente");
         Element nome = new Element("nome");
@@ -77,7 +83,7 @@ public class ClienteDAO {
 
         nome.setText(clienteVO.getNome());
         sobrenome.setText(clienteVO.getSobrenome());
-        tipo.setText(tipoCliente.toString());
+        tipo.setText(tipoUsuario.toString());
         email.setText(clienteVO.getEmail());
         cpf.setText(clienteVO.getCpf());
         dtNasc.setText(clienteVO.getDtNasc());
@@ -97,6 +103,10 @@ public class ClienteDAO {
         return cliente;
     }
 
+    /**
+     * Método para armazenar os dados do usuário logado no XML
+     * @param clienteVO VO do cliente logado
+     */
     public static void salvaDadosUsuarioLogado(ClienteVO clienteVO) {
 
         Element cliente = new Element("cliente");
@@ -156,7 +166,7 @@ public class ClienteDAO {
         cliente.addContent(endereco);
 
         Document clientesXML = new Document(cliente);
-
+                
         XMLOutputter xout = new XMLOutputter();
         FileWriter arquivo;
 
@@ -191,7 +201,12 @@ public class ClienteDAO {
 
     }
 
-    public static void editarNovoCliente(ClienteVO clienteVO, Integer tipoCliente) {
+    /**
+     * Edita o XML de clientes inserindo uma nova instância de cliente cadastrada
+     * @param clienteVO VO do cliente cadastrado
+     * @param tipoUsuario Tipo do usuário se é 1 (Cliente) ou 2 (Restaurante)
+     */
+    public static void editarNovoCliente(ClienteVO clienteVO, Integer tipoUsuario) {
         if (XMLExiste("./src/main/java/data/Clientes.xml")) {
 
             File arquivoClientes = new File("./src/main/java/data/Clientes.xml");
@@ -201,7 +216,7 @@ public class ClienteDAO {
             try {
                 doc = builder.build(arquivoClientes);
                 Element clientes = doc.getRootElement();
-                Element cliente = preencheElementoXML(clienteVO, tipoCliente);
+                Element cliente = preencheElementoXML(clienteVO, tipoUsuario);
                 clientes.addContent(cliente);
 
                 escreveArquivo(doc);
@@ -213,7 +228,7 @@ public class ClienteDAO {
             }
         } else {
             Element clientes = new Element("clientes");
-            Element cliente = preencheElementoXML(clienteVO, tipoCliente);
+            Element cliente = preencheElementoXML(clienteVO, tipoUsuario);
             clientes.addContent(cliente);
             Document clientesXML = new Document(clientes);
 
@@ -322,6 +337,10 @@ public class ClienteDAO {
         return clienteVO;
     }
 
+    /**
+     * Edita uma instância de cliente já existente na base de dados XML
+     * @param clienteVO VO do cliente com as informações já alteradas
+     */
     public static void editarCliente(ClienteVO clienteVO) {
         File arquivoClientes = new File("./src/main/java/data/Clientes.xml");
         SAXBuilder builder = new SAXBuilder();
@@ -356,6 +375,7 @@ public class ClienteDAO {
                     cliente.getChild("endereco").getChild("cep").setText(clienteVO.getCep());
 
                     escreveArquivo(doc);
+                    break;
                 }
             }
         } catch (JDOMException ex) {
