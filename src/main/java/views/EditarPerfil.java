@@ -459,6 +459,10 @@ public class EditarPerfil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    /**
+     * Valida se os dados do formulario estão preenchidos, caso algum campo esteja vazio, adiciona um erro a uma lista
+     * @return List erros
+     */
     private List validateCliente(){
         
         List<String> erros = new ArrayList<String>();
@@ -506,6 +510,10 @@ public class EditarPerfil extends javax.swing.JFrame {
         return erros;
     }
     
+    /**
+     * Salva os dados preenchidos no formulario de edição de cadastro e salva num objeto virtual
+     * @param evt 
+     */
     private void btnEditarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadastroActionPerformed
         ClienteVO cliente = new ClienteVO();
         
@@ -553,9 +561,13 @@ public class EditarPerfil extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEditarCadastroActionPerformed
-
+    
+    /**
+     * retorna para a pagina do perfil
+     * @param evt 
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        controller.renderLogin(this);
+        controller.renderPerfil(this);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
