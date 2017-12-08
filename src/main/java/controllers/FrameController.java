@@ -90,4 +90,11 @@ public class FrameController {
         
         frame.dispose();
     }
+    
+    public void renderEditarPerfil(JFrame frame) {
+        EditarPerfil editarPerfil = new EditarPerfil();
+        editarPerfil.setVisible(true);
+        
+        frame.dispose();
+    }
 }

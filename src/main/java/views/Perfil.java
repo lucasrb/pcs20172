@@ -6,6 +6,16 @@
 package views;
 
 import controllers.FrameController;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+
 
 /**
  *
@@ -14,11 +24,37 @@ import controllers.FrameController;
 public class Perfil extends javax.swing.JFrame {
 
     private final FrameController controller = new FrameController();
+    private final String localPath = System.getProperty("user.dir");
+    
     /**
      * Creates new form Perfil
      */
     public Perfil() {
         initComponents();
+        
+        File arquivoLogin = new File(localPath + "/src/main/java/data/DadosLogin.xml");  
+        SAXBuilder builder = new SAXBuilder();
+            
+        Document doc;
+        
+        try {
+            doc = builder.build(arquivoLogin);
+            Element root = (Element) doc.getRootElement();
+
+            nomeUsuario.setText("Nome: " + root.getChildText("nome") + " "
+            + root.getChildText("sobrenome"));
+            emailUsuario.setText("Email: " + root.getChildText("email"));
+            cpfUsuario.setText("CPF: " + root.getChildText("cpf"));
+            dtNascUsuario.setText("Data de Nascimento: " + root.getChildText("dataNascimento"));
+            sexoUsuario.setText("Sexo: " + root.getChildText("sexo"));
+            
+            
+            
+        } catch (JDOMException ex) {
+                    Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }
 
     /**
@@ -36,7 +72,6 @@ public class Perfil extends javax.swing.JFrame {
         btnPerfil = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         userArea = new javax.swing.JPanel();
-        imgUser = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JLabel();
         emailUsuario = new javax.swing.JLabel();
         cpfUsuario = new javax.swing.JLabel();
@@ -98,8 +133,6 @@ public class Perfil extends javax.swing.JFrame {
         userArea.setBackground(new java.awt.Color(255, 255, 255));
         userArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        imgUser.setText("imagemPerfil");
-
         nomeUsuario.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         nomeUsuario.setText("Nome:");
 
@@ -119,6 +152,11 @@ public class Perfil extends javax.swing.JFrame {
         editarPerfil.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         editarPerfil.setForeground(new java.awt.Color(255, 255, 255));
         editarPerfil.setText("Editar");
+        editarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarPerfilActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout userAreaLayout = new javax.swing.GroupLayout(userArea);
         userArea.setLayout(userAreaLayout);
@@ -126,18 +164,18 @@ public class Perfil extends javax.swing.JFrame {
             userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userAreaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(imgUser)
-                .addGap(78, 78, 78)
                 .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dtNascUsuario)
-                    .addComponent(cpfUsuario)
-                    .addComponent(emailUsuario)
-                    .addComponent(nomeUsuario)
-                    .addComponent(sexoUsuario))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userAreaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editarPerfil)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userAreaLayout.createSequentialGroup()
+                        .addComponent(sexoUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editarPerfil))
+                    .addGroup(userAreaLayout.createSequentialGroup()
+                        .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeUsuario)
+                            .addComponent(emailUsuario)
+                            .addComponent(cpfUsuario)
+                            .addComponent(dtNascUsuario))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         userAreaLayout.setVerticalGroup(
@@ -145,18 +183,16 @@ public class Perfil extends javax.swing.JFrame {
             .addGroup(userAreaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(nomeUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(emailUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpfUsuario)
-                    .addComponent(imgUser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(cpfUsuario)
+                .addGap(18, 18, 18)
                 .addComponent(dtNascUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sexoUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editarPerfil)
+                .addGroup(userAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editarPerfil)
+                    .addComponent(sexoUsuario))
                 .addContainerGap())
         );
 
@@ -325,6 +361,10 @@ public class Perfil extends javax.swing.JFrame {
         controller.renderHome(this);
     }//GEN-LAST:event_btnHomeActionPerformed
 
+    private void editarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerfilActionPerformed
+        controller.renderEditarPerfil(this);
+    }//GEN-LAST:event_editarPerfilActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -382,7 +422,6 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JButton editarPerfil1;
     private javax.swing.JLabel emailUsuario;
     private javax.swing.JLabel estadoUser;
-    private javax.swing.JLabel imgUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel nomeUsuario;

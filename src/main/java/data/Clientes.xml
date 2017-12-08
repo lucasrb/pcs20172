@@ -20,4 +20,14 @@
     <sexo>Masculino</sexo>
     <senha>11</senha>
   </cliente>
+  <cliente>
+    <nome>3</nome>
+    <sobrenome>3</sobrenome>
+    <tipo>1</tipo>
+    <email>3</email>
+    <cpf>3</cpf>
+    <dataNascimento>33/33/3333</dataNascimento>
+    <sexo>Masculino</sexo>
+    <senha>3</senha>
+  </cliente>
 </clientes>

@@ -56,6 +56,7 @@ public class LoginCredentials extends javax.swing.JFrame {
         enter_btn = new javax.swing.JButton();
         erroLogin = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
+        erroCredential = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -122,6 +123,9 @@ public class LoginCredentials extends javax.swing.JFrame {
             }
         });
 
+        erroCredential.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        erroCredential.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout panelLoginCredencialLayout = new javax.swing.GroupLayout(panelLoginCredencial);
         panelLoginCredencial.setLayout(panelLoginCredencialLayout);
         panelLoginCredencialLayout.setHorizontalGroup(
@@ -143,7 +147,8 @@ public class LoginCredentials extends javax.swing.JFrame {
                             .addGroup(panelLoginCredencialLayout.createSequentialGroup()
                                 .addComponent(retrieve_lbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(retrieve_lbl1))))
+                                .addComponent(retrieve_lbl1))
+                            .addComponent(erroCredential)))
                     .addGroup(panelLoginCredencialLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVoltar)
@@ -161,6 +166,8 @@ public class LoginCredentials extends javax.swing.JFrame {
                         .addComponent(btnVoltar)))
                 .addGap(37, 37, 37)
                 .addComponent(erroLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(erroCredential)
                 .addGap(60, 60, 60)
                 .addComponent(email_lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,7 +182,7 @@ public class LoginCredentials extends javax.swing.JFrame {
                     .addComponent(retrieve_lbl1))
                 .addGap(52, 52, 52)
                 .addComponent(enter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         email_lbl.getAccessibleContext().setAccessibleName("Email");
@@ -220,6 +227,8 @@ public class LoginCredentials extends javax.swing.JFrame {
         
         if(loginController.confirmaLogin(cliente, "1")){
             controller.renderHome(this);
+        } else {
+            erroCredential.setText("Email ou Senha incorretos!");
         }
     }//GEN-LAST:event_enter_btnActionPerformed
 
@@ -271,6 +280,7 @@ public class LoginCredentials extends javax.swing.JFrame {
     private javax.swing.JLabel email_lbl;
     private javax.swing.JTextField email_txt;
     private javax.swing.JButton enter_btn;
+    private javax.swing.JLabel erroCredential;
     private javax.swing.JLabel erroLogin;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPanel login_credentials_pnl;

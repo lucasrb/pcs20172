@@ -9,12 +9,15 @@ package controllers;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jdom2.*;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import views.LoginCredentials;
 import vo.ClienteVO;
 
 /**
@@ -95,7 +98,7 @@ public class CadastroController {
             Document doc;
             try {
                 doc = builder.build(arquivoClientes);
-                Element clientes = (Element) doc.getRootElement();
+                Element clientes = doc.getRootElement();
                 Element cliente = preencheElementoXML(clienteVO, tipoCliente);
                 clientes.addContent(cliente);
                 
@@ -113,6 +116,40 @@ public class CadastroController {
             Document clientesXML = new Document(clientes);
             
             escreveArquivo(clientesXML);
+        }
+    }
+    
+    public void editarCadatro(ClienteVO clienteVO){
+        File arquivoClientes = new File(localPath + "/src/main/java/data/Clientes.xml");  
+        SAXBuilder builder = new SAXBuilder();
+        Document doc;
+
+        try {
+            doc = builder.build(arquivoClientes);
+            Element root = doc.getRootElement();
+                    
+            List clientes = root.getChildren();
+                    
+            Iterator i = clientes.iterator();
+                    
+            while(i.hasNext()){
+                Element cliente = (Element) i.next();
+                String email = cliente.getChildText("email");
+
+                if(email.equals(clienteVO.getEmail())){
+                    cliente.getChild("nome").setText(clienteVO.getNome());
+                    cliente.getChild("sobrenome").setText(clienteVO.getSobrenome());
+                    cliente.getChild("email").setText(clienteVO.getEmail());
+                    cliente.getChild("cpf").setText(clienteVO.getCpf());
+                    cliente.getChild("dataNascimento").setText(clienteVO.getDtNasc());
+                    cliente.getChild("senha").setText(clienteVO.getSenha());
+                    escreveArquivo(doc);
+                }
+            }
+        } catch (JDOMException ex) {
+            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

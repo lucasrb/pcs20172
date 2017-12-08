@@ -81,7 +81,7 @@ public class LoginController {
         return false;
     }
     
-        private void salvaDadosUsuario(ClienteVO clienteVO){
+        public void salvaDadosUsuario(ClienteVO clienteVO){
         
         Element cliente = new Element("cliente");
         Element nome = new Element("nome");

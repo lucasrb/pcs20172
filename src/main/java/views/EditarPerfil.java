@@ -9,25 +9,68 @@ import controllers.CadastroController;
 import controllers.FrameController;
 import controllers.LoginController;
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import vo.ClienteVO;
 
 /**
  *
  * @author bruno.franco
  */
-public class Cadastro extends javax.swing.JFrame {
+public class EditarPerfil extends javax.swing.JFrame {
     
     private final FrameController controller = new FrameController();
     private final CadastroController cadController = new CadastroController();
+    private final String localPath = System.getProperty("user.dir");
     /**
      * Creates new form Cadastro
      */
-    public Cadastro() {
+    public EditarPerfil() {
         initComponents();
+        
+        File arquivoLogin = new File(localPath + "/src/main/java/data/DadosLogin.xml");  
+        SAXBuilder builder = new SAXBuilder();
+            
+        Document doc;
+        
+        try {
+            doc = builder.build(arquivoLogin);
+            Element root = (Element) doc.getRootElement();
+
+            nome_txt.setText(root.getChildText("nome"));
+            sobrenome_txt.setText(root.getChildText("sobrenome"));
+            email_txt.setText(root.getChildText("email"));
+            cpf_txt.setText(root.getChildText("cpf"));
+            diaNasc_txt.setText(root.getChildText("dataNascimento").substring(0, 2));
+            mesNasc_txt.setText(root.getChildText("dataNascimento").substring(3, 5));
+            anoNasc_txt.setText(root.getChildText("dataNascimento").substring(6, 10));
+            if(root.getChildText("sexo").equals("Masculino")){
+                radioSexoMasc.setSelected(true);
+                radioSexoFem.setSelected(false);
+            } else {
+                radioSexoFem.setSelected(true);
+                radioSexoMasc.setSelected(false);
+            }
+            senha.setText(root.getChildText("senha"));
+            confSenha.setText(root.getChildText("senha"));
+           
+            
+            
+            
+        } catch (JDOMException ex) {
+                    Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -63,7 +106,7 @@ public class Cadastro extends javax.swing.JFrame {
         senha = new javax.swing.JPasswordField();
         labelConformarSenha = new javax.swing.JLabel();
         confSenha = new javax.swing.JPasswordField();
-        cadastro_btn = new javax.swing.JButton();
+        btnEditarCadastro = new javax.swing.JButton();
         lstErros = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
 
@@ -127,13 +170,13 @@ public class Cadastro extends javax.swing.JFrame {
 
         confSenha.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
 
-        cadastro_btn.setBackground(new java.awt.Color(255, 0, 51));
-        cadastro_btn.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        cadastro_btn.setForeground(new java.awt.Color(255, 255, 255));
-        cadastro_btn.setText("Cadastrar");
-        cadastro_btn.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarCadastro.setBackground(new java.awt.Color(255, 0, 51));
+        btnEditarCadastro.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        btnEditarCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarCadastro.setText("Salvar");
+        btnEditarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastro_btnActionPerformed(evt);
+                btnEditarCadastroActionPerformed(evt);
             }
         });
 
@@ -153,7 +196,7 @@ public class Cadastro extends javax.swing.JFrame {
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
                 .addGap(245, 245, 245)
-                .addComponent(cadastro_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelCadastroLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
@@ -255,7 +298,7 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(cadastro_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
 
@@ -320,7 +363,7 @@ public class Cadastro extends javax.swing.JFrame {
         return erros;
     }
     
-    private void cadastro_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastro_btnActionPerformed
+    private void btnEditarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadastroActionPerformed
         ClienteVO cliente = new ClienteVO();
         
         cliente.setNome(nome_txt.getText());
@@ -344,10 +387,10 @@ public class Cadastro extends javax.swing.JFrame {
         List erros = validateCliente();
         
         if(erros.isEmpty()){
-            cadController.cadastrarCliente(cliente, 1);
+            cadController.editarCadatro(cliente);
             LoginController login = new LoginController();
             login.salvaDadosUsuario(cliente);
-            controller.renderHome(this);
+            controller.renderPerfil(this);
         } else {
             
             Iterator i = erros.iterator();
@@ -357,7 +400,7 @@ public class Cadastro extends javax.swing.JFrame {
                 lstErros.setForeground(Color.red);
             }
         }
-    }//GEN-LAST:event_cadastro_btnActionPerformed
+    }//GEN-LAST:event_btnEditarCadastroActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         controller.renderLogin(this);
@@ -380,29 +423,30 @@ public class Cadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cadastro().setVisible(true);
+                new EditarPerfil().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoNasc_txt;
+    private javax.swing.JButton btnEditarCadastro;
     private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroupSexo;
-    private javax.swing.JButton cadastro_btn;
     private javax.swing.JPasswordField confSenha;
     private javax.swing.JTextField cpf_txt;
     private javax.swing.JTextField diaNasc_txt;
