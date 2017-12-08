@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<restaurantes>
+    <restaurante>
+        <id>1</id>
+        <nome>Rato's Food </nome>
+        <telefone> 219182738994 </telefone>
+        <descricao>Melhor Bar da Zona Sul</descricao>
+    </restaurante>
+    <restaurante>
+        <id>2</id>
+        <nome> BiBi </nome>
+        <telefone> 21982278349 </telefone>
+        <descricao>Restaurante com propaganda no metrô</descricao>
+    </restaurante>
+</restaurantes>

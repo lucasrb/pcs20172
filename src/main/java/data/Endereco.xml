@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enderecos>
+    <endereco>
+        <id>4</id>
+        <idRestaurante>1</idRestaurante>
+        <cep>21051360</cep>
+        <rua>Rua Lago Verde</rua>
+        <numero>17</numero>
+        <complemento> Bloco A </complemento>
+    </endereco>
+</enderecos>
