@@ -98,6 +98,7 @@ public class HistoricoPedido extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tabelaPedidos.setCellSelectionEnabled(true);
         tabelaPedidos.setSelectionBackground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setViewportView(tabelaPedidos);
 

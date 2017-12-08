@@ -27,7 +27,11 @@ import vo.ClienteVO;
 public class CadastroController {
 
     private String localPath = System.getProperty("user.dir");
-    
+    /**
+     * verifica se a base de dados já existe
+     * @param path
+     * @return true se exitir, false caso contrário 
+     */
     private boolean XMLExiste(String path){
         
         File arquivo = new File(path);
@@ -92,6 +96,10 @@ public class CadastroController {
         return cliente;
     }
     
+    /**
+     * Escreve no Documento XML os elementos de cadastro de usuario
+     * @param doc 
+     */
     private void escreveArquivo(Document doc){
         
         XMLOutputter xout = new XMLOutputter();
@@ -139,6 +147,11 @@ public class CadastroController {
         }
     }
     
+    /**
+     * Atualiza os dados do usuario, conforme o preenchido no formulario,
+     * caso o campo esteja vazio, ele preenche
+     * @param clienteVO 
+     */
     public void editarCadatro(ClienteVO clienteVO){
         File arquivoClientes = new File(localPath + "/src/main/java/data/Clientes.xml");  
         SAXBuilder builder = new SAXBuilder();

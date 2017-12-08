@@ -272,7 +272,10 @@ public class Cadastro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    /**
+     * Metodo que valida se os campos do formulario foram preenchidos, caso algum não esteja ele salva em uma lista de erros
+     * @return List 
+     */
     private List validateCliente(){
         
         List<String> erros = new ArrayList<String>();
@@ -320,6 +323,10 @@ public class Cadastro extends javax.swing.JFrame {
         return erros;
     }
     
+    /**
+     * Salva todos os dados do cliente preenchidos no formulario de cadastro num objeto virtual
+     * @param evt 
+     */
     private void cadastro_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastro_btnActionPerformed
         ClienteVO cliente = new ClienteVO();
         
@@ -358,7 +365,10 @@ public class Cadastro extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cadastro_btnActionPerformed
-
+    /**
+     * retorna para a pagina inicial do programa
+     * @param evt 
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         controller.renderLogin(this);
     }//GEN-LAST:event_btnVoltarActionPerformed

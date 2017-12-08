@@ -154,15 +154,26 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Chama a renderização da pagina de Login Credentials
+     * @param evt 
+     */
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         controller.renderCredentials(this);
     }//GEN-LAST:event_btnLoginActionPerformed
-
+    
+    /**
+     * Chama a renderização da pagina de Cadastro
+     * @param evt 
+     */
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
         controller.renderCadastro(this);
     }//GEN-LAST:event_btnCadastroActionPerformed
-
+    
+    /**
+     * renderiza a pagina de Login de Adm Restaurante
+     * @param evt 
+     */
     private void redirectRestLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirectRestLinkMouseClicked
         FrameController controller = new FrameController();
         controller.renderLoginRest(this);

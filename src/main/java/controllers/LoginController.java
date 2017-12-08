@@ -29,6 +29,12 @@ public class LoginController {
     
     private String localPath = System.getProperty("user.dir");
     
+    /**
+     * realiza a verificação dos dados do login, se existem na base de dados
+     * @param clienteVO
+     * @param tipo
+     * @return 
+     */
     public boolean confirmaLogin(ClienteVO clienteVO, String tipo){
         if(clienteVO.getEmail().length() != 0 || clienteVO.getEmail() != null){
             if(clienteVO.getSenha() != null || clienteVO.getSenha().length() != 0){
@@ -89,7 +95,11 @@ public class LoginController {
         return false;
     }
     
-        public void salvaDadosUsuario(ClienteVO clienteVO){
+    /**
+     * Salva na base de dados os dados do cliente logado
+     * @param clienteVO 
+     */
+    public void salvaDadosUsuario(ClienteVO clienteVO){
         
         Element cliente = new Element("cliente");
         Element nome = new Element("nome");
