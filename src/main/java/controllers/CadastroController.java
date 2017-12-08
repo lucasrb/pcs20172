@@ -50,6 +50,24 @@ public class CadastroController {
         Element dtNasc = new Element("dataNascimento");
         Element sexo = new Element("sexo");
         Element senha = new Element("senha");
+        Element endereco = new Element("endereco");
+        Element rua = new Element("rua");
+        Element numero = new Element("numero");
+        Element bairro = new Element("bairro");
+        Element complemento = new Element("complemento");
+        Element cep = new Element("cep");
+        Element cidade = new Element("cidade");
+        Element estado = new Element("estado");
+        Element ptReferencia = new Element("ptReferencia");
+        
+        endereco.addContent(rua);
+        endereco.addContent(numero);
+        endereco.addContent(bairro);
+        endereco.addContent(complemento);
+        endereco.addContent(cep);
+        endereco.addContent(cidade);
+        endereco.addContent(estado);
+        endereco.addContent(ptReferencia);
 
         nome.setText(clienteVO.getNome());
         sobrenome.setText(clienteVO.getSobrenome());
@@ -59,6 +77,7 @@ public class CadastroController {
         dtNasc.setText(clienteVO.getDtNasc());
         sexo.setText(clienteVO.getSexo());
         senha.setText(clienteVO.getSenha());
+        
 
         cliente.addContent(nome);
         cliente.addContent(sobrenome);
@@ -68,6 +87,7 @@ public class CadastroController {
         cliente.addContent(dtNasc);
         cliente.addContent(sexo);
         cliente.addContent(senha);
+        cliente.addContent(endereco);
         
         return cliente;
     }
@@ -143,6 +163,15 @@ public class CadastroController {
                     cliente.getChild("cpf").setText(clienteVO.getCpf());
                     cliente.getChild("dataNascimento").setText(clienteVO.getDtNasc());
                     cliente.getChild("senha").setText(clienteVO.getSenha());
+                    cliente.getChild("endereco").getChild("rua").setText(clienteVO.getRua());
+                    cliente.getChild("endereco").getChild("numero").setText(clienteVO.getNumero());
+                    cliente.getChild("endereco").getChild("bairro").setText(clienteVO.getBairro());
+                    cliente.getChild("endereco").getChild("complemento").setText(clienteVO.getComplemento());
+                    cliente.getChild("endereco").getChild("cidade").setText(clienteVO.getCidade());
+                    cliente.getChild("endereco").getChild("estado").setText(clienteVO.getEstado());
+                    cliente.getChild("endereco").getChild("ptReferencia").setText(clienteVO.getPtReferencia());
+                    cliente.getChild("endereco").getChild("cep").setText(clienteVO.getCep());
+                    
                     escreveArquivo(doc);
                 }
             }
