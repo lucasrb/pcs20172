@@ -23,7 +23,6 @@ public class HomeController {
         newFrame.setLocationRelativeTo(null);
         newFrame.setResizable(false);
 
-        System.err.println(restaurante);
 
         frame.dispose();
     }
@@ -34,7 +33,6 @@ public class HomeController {
         newFrame.setLocationRelativeTo(null);
         newFrame.setResizable(false);
 
-        System.err.println(restaurante);
 
         frame.dispose();
     }
