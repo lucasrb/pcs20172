@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import data.ClienteDAO;
+import dao.ClienteDAO;
 import vo.ClienteVO;
 
 /**
