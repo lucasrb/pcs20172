@@ -7,10 +7,8 @@ package views;
 
 import controllers.CadastroController;
 import controllers.FrameController;
-import controllers.LoginController;
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import vo.ClienteVO;
@@ -345,8 +343,7 @@ public class Cadastro extends javax.swing.JFrame {
         
         if(erros.isEmpty()){
             cadController.cadastrarCliente(cliente, 1);
-            LoginController login = new LoginController();
-            login.salvaDadosUsuario(cliente);
+            cadController.salvaDadosUsuarioLogado(cliente);
             controller.renderHome(this);
         } else {
             

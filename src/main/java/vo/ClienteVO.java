@@ -6,12 +6,13 @@
 package vo;
 
 import java.util.Calendar;
+import lombok.Data;
 
 /**
  *
  * @author bruno.franco
  */
-public class ClienteVO {
+@Data public class ClienteVO {
     
     private String  nome;
     private String  sobrenome;
@@ -23,75 +24,7 @@ public class ClienteVO {
     private String  cnfSenha;
     private String  tipo;
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getDtNasc() {
-        return dtNasc;
-    }
-
-    public void setDtNasc(String dtNasc) {
-        this.dtNasc = dtNasc;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    
-    public String getCnfSenha() {
-        return cnfSenha;
-    }
-
-    public void setCnfSenha(String cnfSenha) {
-        this.cnfSenha = cnfSenha;
+    public String getNomeCompleto(){
+        return nome + " " + sobrenome;
     }
 }

@@ -6,15 +6,9 @@
 package views;
 
 import controllers.FrameController;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
+import controllers.LoginController;
+import data.ClienteDAO;
+import vo.ClienteVO;
 
 
 /**
@@ -24,7 +18,7 @@ import org.jdom2.input.SAXBuilder;
 public class Perfil extends javax.swing.JFrame {
 
     private final FrameController controller = new FrameController();
-    private final String localPath = System.getProperty("user.dir");
+    private final LoginController loginController = new LoginController();
     
     /**
      * Creates new form Perfil
@@ -32,29 +26,13 @@ public class Perfil extends javax.swing.JFrame {
     public Perfil() {
         initComponents();
         
-        File arquivoLogin = new File(localPath + "/src/main/java/data/DadosLogin.xml");  
-        SAXBuilder builder = new SAXBuilder();
+        ClienteVO cliente = loginController.buscarClienteLogado();
             
-        Document doc;
-        
-        try {
-            doc = builder.build(arquivoLogin);
-            Element root = (Element) doc.getRootElement();
-
-            nomeUsuario.setText("Nome: " + root.getChildText("nome") + " "
-            + root.getChildText("sobrenome"));
-            emailUsuario.setText("Email: " + root.getChildText("email"));
-            cpfUsuario.setText("CPF: " + root.getChildText("cpf"));
-            dtNascUsuario.setText("Data de Nascimento: " + root.getChildText("dataNascimento"));
-            sexoUsuario.setText("Sexo: " + root.getChildText("sexo"));
-            
-            
-            
-        } catch (JDOMException ex) {
-                    Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        nomeUsuario.setText(cliente.getNomeCompleto());
+        emailUsuario.setText(cliente.getEmail());
+        cpfUsuario.setText(cliente.getCpf());
+        dtNascUsuario.setText(cliente.getDtNasc());
+        sexoUsuario.setText(cliente.getSexo());
     }
 
     /**
