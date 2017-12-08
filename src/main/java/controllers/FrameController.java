@@ -124,4 +124,11 @@ public class FrameController {
         
         frame.dispose();
     }
+    
+    public void renderVisualizarHistórico(JFrame frame) {
+        HistoricoPedido hist = new HistoricoPedido();
+        hist.setVisible(true);
+        
+        frame.dispose();
+    }
 }
