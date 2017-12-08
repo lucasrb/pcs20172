@@ -6,9 +6,10 @@
 package views;
 
 import controllers.*;
-import java.util.ArrayList;
+import dao.RestauranteDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import vo.RestauranteVO;
 
 /**
  *
@@ -23,64 +24,19 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        
-        addRowToJTable();
+
+        this.addRowToJTable();
     }
-    
-    public class Restaurante{
-        private String nome;
-        private String informacao;
-        private String detalhes;
 
-        public Restaurante(String nome, String informacao, String detalhes) {
-            this.nome = nome;
-            this.informacao = informacao;
-            this.detalhes = detalhes;
-        }
-
-        public String getNome() {
-            return nome;
-        }
-
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
-
-        public String getInformacao() {
-            return informacao;
-        }
-
-        public void setInformacao(String informacao) {
-            this.informacao = informacao;
-        }
-
-        public String getDetalhes() {
-            return detalhes;
-        }
-
-        public void setDetalhes(String detalhes) {
-            this.detalhes = detalhes;
-        }
-        
-        
-    }
-    
-    public List<Restaurante> listRestaurants(){
-        Restaurante a = new Restaurante("Rato", "Sujo", "Pode conferir");
-        List<Restaurante> list = new ArrayList<Restaurante>();
-        list.add(a);
-        
-        return list;
-    }
-    
     public void addRowToJTable() {
+        List<RestauranteVO> list = RestauranteDAO.getRestaurantes();
         DefaultTableModel model = (DefaultTableModel) tblRestaurantes.getModel();
-        List<Restaurante> list = listRestaurants();
-        Object rowData[] = new Object[4];
+
         for (int i = 0; i < list.size(); i++) {
-            rowData[0] = list.get(i).nome;
-            rowData[1] = list.get(i).informacao;
-            rowData[2] = list.get(i).detalhes;
+            Object rowData[] = new Object[3];
+            rowData[0] = list.get(i).getNome();
+            rowData[1] = list.get(i).getTelefone();
+            rowData[2] = list.get(i).getDescricao();
             model.addRow(rowData);
         }
     }
@@ -169,7 +125,7 @@ public class Home extends javax.swing.JFrame {
 
         txtFiltrar.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         txtFiltrar.setToolTipText("Escreva aqui o filtro");
-        txtFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnFiltrar.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         btnFiltrar.setText("Filtrar");
@@ -197,9 +153,17 @@ public class Home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Restaurante", "Informações", "Detalhes"
+                "Restaurante", "Telefone", "Descricao"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tblRestaurantes);
 
         javax.swing.GroupLayout pnlRestaurantesLayout = new javax.swing.GroupLayout(pnlRestaurantes);
@@ -407,4 +371,5 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel title_lbl;
     private javax.swing.JTextField txtFiltrar;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -260,7 +260,7 @@
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Escreva aqui o filtro"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor de Texto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
             </Component>
@@ -323,7 +323,7 @@
                 <Container class="javax.swing.JPanel" name="pnlRestaurantes">
                   <Properties>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Padr&#xe3;o"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
 
@@ -362,9 +362,9 @@
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="3" rowCount="0">
-                                <Column editable="true" title="Restaurante" type="java.lang.Object"/>
-                                <Column editable="true" title="Informa&#xe7;&#xf5;es" type="java.lang.Object"/>
-                                <Column editable="true" title="Detalhes" type="java.lang.Object"/>
+                                <Column editable="false" title="Restaurante" type="java.lang.Object"/>
+                                <Column editable="false" title="Telefone" type="java.lang.Object"/>
+                                <Column editable="false" title="Descricao" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
