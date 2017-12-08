@@ -28,6 +28,12 @@ import vo.ClienteVO;
  */
 public class ClienteDAO {
 
+    /**
+     * verifica se a base de dados já existe
+     *
+     * @param path
+     * @return true se exitir, false caso contrário
+     */
     private static boolean XMLExiste(String path) {
 
         File arquivo = new File(path);
@@ -165,6 +171,11 @@ public class ClienteDAO {
         }
     }
 
+    /**
+     * Escreve no Documento XML os elementos de cadastro de usuario
+     *
+     * @param doc
+     */
     private static void escreveArquivo(Document doc) {
 
         XMLOutputter xout = new XMLOutputter();
@@ -284,6 +295,7 @@ public class ClienteDAO {
         try {
             doc = builder.build(arquivoClientes);
             Element root = doc.getRootElement();
+            Element endereco = root.getChild("endereco");
 
             clienteVO.setNome(root.getChildText("nome"));
             clienteVO.setSobrenome(root.getChildText("sobrenome"));
@@ -293,6 +305,14 @@ public class ClienteDAO {
             clienteVO.setSenha(root.getChildText("senha"));
             clienteVO.setSexo(root.getChildText("sexo"));
             clienteVO.setTipo(root.getChildText("tipo"));
+            clienteVO.setRua(endereco.getChildText("rua"));
+            clienteVO.setNumero(endereco.getChildText("numero"));
+            clienteVO.setBairro(endereco.getChildText("bairro"));
+            clienteVO.setComplemento(endereco.getChildText("complemento"));
+            clienteVO.setCep(endereco.getChildText("cep"));
+            clienteVO.setCidade(endereco.getChildText("cidade"));
+            clienteVO.setEstado(endereco.getChildText("estado"));
+            clienteVO.setPtReferencia(endereco.getChildText("ptReferencia"));
         } catch (JDOMException ex) {
             Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -334,7 +354,7 @@ public class ClienteDAO {
                     cliente.getChild("endereco").getChild("estado").setText(clienteVO.getEstado());
                     cliente.getChild("endereco").getChild("ptReferencia").setText(clienteVO.getPtReferencia());
                     cliente.getChild("endereco").getChild("cep").setText(clienteVO.getCep());
-            
+
                     escreveArquivo(doc);
                 }
             }

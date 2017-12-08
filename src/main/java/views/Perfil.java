@@ -71,7 +71,7 @@ public class Perfil extends javax.swing.JFrame {
         bairroUser = new javax.swing.JLabel();
         cidadeUser = new javax.swing.JLabel();
         ptReferenciaUser = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        histPedidosBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,10 +238,15 @@ public class Perfil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ver histórico de compras");
+        histPedidosBtn.setBackground(new java.awt.Color(255, 0, 0));
+        histPedidosBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        histPedidosBtn.setForeground(new java.awt.Color(255, 255, 255));
+        histPedidosBtn.setText("Ver histórico de compras");
+        histPedidosBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                histPedidosBtnActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -265,7 +270,7 @@ public class Perfil extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(perfilPAnelLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(histPedidosBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -284,7 +289,7 @@ public class Perfil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(perfilPAnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(histPedidosBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -301,22 +306,41 @@ public class Perfil extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Realiza logoff do usuario
+     * @param evt 
+     */
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         controller.renderLogin(this);
     }//GEN-LAST:event_btnSairActionPerformed
-
+    
+    /**
+     * retorna para a tela de Perfil do usuário
+     * @param evt 
+     */
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         controller.renderPerfil(this);
     }//GEN-LAST:event_btnPerfilActionPerformed
-
+    /**
+     * retorna para Home
+     * @param evt 
+     */
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         controller.renderHome(this);
     }//GEN-LAST:event_btnHomeActionPerformed
-
+    
+    /**
+     * renderiza tela de edição de dados do perfil
+     * @param evt 
+     */
     private void editarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerfilActionPerformed
         controller.renderEditarPerfil(this);
     }//GEN-LAST:event_editarPerfilActionPerformed
+
+    private void histPedidosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_histPedidosBtnActionPerformed
+        controller.renderVisualizarHistórico(this);
+    }//GEN-LAST:event_histPedidosBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,7 +397,7 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JButton editarPerfil;
     private javax.swing.JLabel emailUsuario;
     private javax.swing.JLabel estadoUser;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton histPedidosBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JLabel numUser;
