@@ -9,17 +9,9 @@ import controllers.CadastroController;
 import controllers.FrameController;
 import controllers.LoginController;
 import java.awt.Color;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
 import vo.ClienteVO;
 
 /**
@@ -27,57 +19,44 @@ import vo.ClienteVO;
  * @author bruno.franco
  */
 public class EditarPerfil extends javax.swing.JFrame {
-    
+
     private final FrameController controller = new FrameController();
     private final CadastroController cadController = new CadastroController();
-    private final String localPath = System.getProperty("user.dir");
+    private final LoginController loginController = new LoginController();
+
     /**
      * Creates new form Cadastro
      */
     public EditarPerfil() {
         initComponents();
-        
-        File arquivoLogin = new File(localPath + "/src/main/java/data/DadosLogin.xml");  
-        SAXBuilder builder = new SAXBuilder();
-            
-        Document doc;
-        
-        try {
-            doc = builder.build(arquivoLogin);
-            Element root = (Element) doc.getRootElement();
 
-            nome_txt.setText(root.getChildText("nome"));
-            sobrenome_txt.setText(root.getChildText("sobrenome"));
-            email_txt.setText(root.getChildText("email"));
-            cpf_txt.setText(root.getChildText("cpf"));
-            diaNasc_txt.setText(root.getChildText("dataNascimento").substring(0, 2));
-            mesNasc_txt.setText(root.getChildText("dataNascimento").substring(3, 5));
-            anoNasc_txt.setText(root.getChildText("dataNascimento").substring(6, 10));
-            if(root.getChildText("sexo").equals("Masculino")){
-                radioSexoMasc.setSelected(true);
-                radioSexoFem.setSelected(false);
-            } else {
-                radioSexoFem.setSelected(true);
-                radioSexoMasc.setSelected(false);
-            }
-            senha.setText(root.getChildText("senha"));
-            confSenha.setText(root.getChildText("senha"));
-            rua_txt.setText(root.getChild("endereco").getChildText("rua"));
-            numero_txt.setText(root.getChild("endereco").getChildText("numero"));
-            bairro_txt1.setText(root.getChild("endereco").getChildText("bairro"));
-            cep_txt.setText(root.getChild("endereco").getChildText("cep"));
-            complemento_txt.setText(root.getChild("endereco").getChildText("complemento"));
-            cidade_txt.setText(root.getChild("endereco").getChildText("cidade"));
-            estado_txt.setText(root.getChild("endereco").getChildText("estado"));
-            ptReferencia_txt.setText(root.getChild("endereco").getChildText("ptReferencia"));
-            
-            
-            
-        } catch (JDOMException ex) {
-                    Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
+        ClienteVO clienteVO = loginController.buscarClienteLogado();
+
+        nome_txt.setText(clienteVO.getNome());
+        sobrenome_txt.setText(clienteVO.getSobrenome());
+        email_txt.setText(clienteVO.getEmail());
+        cpf_txt.setText(clienteVO.getCpf());
+        diaNasc_txt.setText(clienteVO.getDtNasc().substring(0, 2));
+        mesNasc_txt.setText(clienteVO.getDtNasc().substring(3, 5));
+        anoNasc_txt.setText(clienteVO.getDtNasc().substring(6, 10));
+        if (clienteVO.getSexo().equals("Masculino")) {
+            radioSexoMasc.setSelected(true);
+            radioSexoFem.setSelected(false);
+        } else {
+            radioSexoFem.setSelected(true);
+            radioSexoMasc.setSelected(false);
         }
+        senha.setText (clienteVO.getSenha());
+        confSenha.setText (clienteVO.getCnfSenha());
+        rua_txt.setText(clienteVO.getRua());
+        numero_txt.setText(clienteVO.getNumero());
+        bairro_txt1.setText(clienteVO.getBairro());
+        cep_txt.setText(clienteVO.getCep());
+        complemento_txt.setText(clienteVO.getComplemento());
+        cidade_txt.setText(clienteVO.getCidade());
+        estado_txt.setText(clienteVO.getEstado());
+        ptReferencia_txt.setText(clienteVO.getPtReferencia());
+
     }
 
     /**
@@ -458,71 +437,71 @@ public class EditarPerfil extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private List validateCliente(){
-        
+
+    private List validateCliente() {
+
         List<String> erros = new ArrayList<String>();
-        if(nome_txt.getText().isEmpty() || nome_txt.getText() == null){
+        if (nome_txt.getText().isEmpty() || nome_txt.getText() == null) {
             erros.add("Campo Nome não preenchido");
         }
-        if(sobrenome_txt.getText().isEmpty() || sobrenome_txt.getText() == null){
+        if (sobrenome_txt.getText().isEmpty() || sobrenome_txt.getText() == null) {
             erros.add("Campo Sobrenome não preenchido");
         }
-        if(email_txt.getText().isEmpty() || email_txt.getText() == null){
+        if (email_txt.getText().isEmpty() || email_txt.getText() == null) {
             erros.add("Campo Email não preenchido");
         }
-        if(cpf_txt.getText().isEmpty() || cpf_txt.getText() == null){
+        if (cpf_txt.getText().isEmpty() || cpf_txt.getText() == null) {
             erros.add("Campo Cpf não preenchido");
         }
-        if(diaNasc_txt.getText().isEmpty() || diaNasc_txt.getText() == null){
+        if (diaNasc_txt.getText().isEmpty() || diaNasc_txt.getText() == null) {
             erros.add("Campo Dia não preenchido");
         }
-        if(mesNasc_txt.getText().isEmpty() || mesNasc_txt.getText() == null){
+        if (mesNasc_txt.getText().isEmpty() || mesNasc_txt.getText() == null) {
             erros.add("Campo Mês não preenchido");
         }
-        if(anoNasc_txt.getText().isEmpty() || anoNasc_txt.getText() == null){
+        if (anoNasc_txt.getText().isEmpty() || anoNasc_txt.getText() == null) {
             erros.add("Campo Ano não preenchido");
         }
-        if(senha.getPassword().length == 0 || senha.getPassword() == null){
+        if (senha.getPassword().length == 0 || senha.getPassword() == null) {
             erros.add("Campo Senha não preenchido");
         }
-        if(confSenha.getPassword().length == 0 || confSenha.getPassword() == null){
+        if (confSenha.getPassword().length == 0 || confSenha.getPassword() == null) {
             erros.add("Campo Confirmar Senha não preenchido");
         }
-        if(senha.getPassword().length != 0 || senha.getPassword() != null){
-            if(confSenha.getPassword().length != 0 || confSenha.getPassword() != null){
-                
+        if (senha.getPassword().length != 0 || senha.getPassword() != null) {
+            if (confSenha.getPassword().length != 0 || confSenha.getPassword() != null) {
+
                 char[] snh = senha.getPassword();
                 char[] confSnh = confSenha.getPassword();
                 String snhStr = new String(snh);
                 String confSnhStr = new String(confSnh);
-                
-                if(!snhStr.equals(confSnhStr)){
+
+                if (!snhStr.equals(confSnhStr)) {
                     erros.add("Campo Confirmar Senha inválido");
                 }
             }
         }
-        
+
         return erros;
     }
-    
+
     private void btnEditarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadastroActionPerformed
         ClienteVO cliente = new ClienteVO();
-        
+
         cliente.setNome(nome_txt.getText());
         cliente.setSobrenome(sobrenome_txt.getText());
         cliente.setEmail(email_txt.getText());
         cliente.setCpf(cpf_txt.getText());
         cliente.setDtNasc(diaNasc_txt.getText() + "/" + mesNasc_txt.getText() + "/" + anoNasc_txt.getText());
-        if(radioSexoMasc.isSelected()){
+        if (radioSexoMasc.isSelected()) {
             cliente.setSexo(radioSexoMasc.getText());
-        } else if (radioSexoFem.isSelected()){
+        } else if (radioSexoFem.isSelected()) {
             cliente.setSexo(radioSexoFem.getText());
         }
         char[] snh = senha.getPassword();
         String strSenha = new String(snh);
         cliente.setSenha(strSenha);
-        
+
         char[] confSnh = confSenha.getPassword();
         String snhconf = new String(confSnh);
         cliente.setCnfSenha(snhconf);  
@@ -537,17 +516,17 @@ public class EditarPerfil extends javax.swing.JFrame {
         cliente.setPtReferencia(ptReferencia_txt.getText());
         
         List erros = validateCliente();
-        
-        if(erros.isEmpty()){
+
+        if (erros.isEmpty()) {
             cadController.editarCadatro(cliente);
-            LoginController login = new LoginController();
-            login.salvaDadosUsuario(cliente);
+            cadController.salvaDadosUsuarioLogado(cliente);
+
             controller.renderPerfil(this);
         } else {
-            
+
             Iterator i = erros.iterator();
-            
-            if(i.hasNext()){
+
+            if (i.hasNext()) {
                 lstErros.setText(erros.get(0).toString());
                 lstErros.setForeground(Color.red);
             }
@@ -572,16 +551,28 @@ public class EditarPerfil extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarPerfil.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EditarPerfil.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EditarPerfil.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EditarPerfil.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

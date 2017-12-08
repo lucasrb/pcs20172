@@ -6,16 +6,8 @@
 package views;
 
 import controllers.FrameController;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
-
+import controllers.LoginController;
+import vo.ClienteVO;
 
 /**
  *
@@ -24,44 +16,30 @@ import org.jdom2.input.SAXBuilder;
 public class Perfil extends javax.swing.JFrame {
 
     private final FrameController controller = new FrameController();
-    private final String localPath = System.getProperty("user.dir");
-    
+    private final LoginController loginController = new LoginController();
+
     /**
      * Creates new form Perfil
      */
     public Perfil() {
         initComponents();
-        
-        File arquivoLogin = new File(localPath + "/src/main/java/data/DadosLogin.xml");  
-        SAXBuilder builder = new SAXBuilder();
-            
-        Document doc;
-        
-        try {
-            doc = builder.build(arquivoLogin);
-            Element root = (Element) doc.getRootElement();
 
-            nomeUsuario.setText("Nome: " + root.getChildText("nome") + " "
-            + root.getChildText("sobrenome"));
-            emailUsuario.setText("Email: " + root.getChildText("email"));
-            cpfUsuario.setText("CPF: " + root.getChildText("cpf"));
-            dtNascUsuario.setText("Data de Nascimento: " + root.getChildText("dataNascimento"));
-            sexoUsuario.setText("Sexo: " + root.getChildText("sexo"));
-            ruaUser.setText("Rua: " + root.getChild("endereco").getChildText("rua"));
-            numUser.setText("Numero: " + root.getChild("endereco").getChildText("numero"));
-            bairroUser.setText("Bairro: " + root.getChild("endereco").getChildText("bairro"));
-            cepUser.setText("CEP: " + root.getChild("endereco").getChildText("cep"));
-            complementoUser.setText("Complemento: " + root.getChild("endereco").getChildText("complemento"));
-            cidadeUser.setText("Cidade: " + root.getChild("endereco").getChildText("cidade"));
-            estadoUser.setText("Estado: " + root.getChild("endereco").getChildText("estado"));
-            ptReferenciaUser.setText("Ponto de Referência: " + root.getChild("endereco").getChildText("ptReferencia"));
-            
-            
-        } catch (JDOMException ex) {
-                    Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(LoginCredentials.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        ClienteVO cliente = loginController.buscarClienteLogado();
+
+        nomeUsuario.setText("Nome: " + cliente.getNomeCompleto());
+        emailUsuario.setText("Email: " + cliente.getEmail());
+        cpfUsuario.setText("CPF: " + cliente.getCpf());
+        dtNascUsuario.setText("Data de Nascimento: " + cliente.getDtNasc());
+        sexoUsuario.setText("Sexo: " + cliente.getSexo());
+        ruaUser.setText("Rua: " + cliente.getRua());
+        numUser.setText("Numero: " + cliente.getNumero());
+        bairroUser.setText("Bairro: " + cliente.getBairro());
+        cepUser.setText("CEP: " + cliente.getCep());
+        complementoUser.setText("Complemento: " + cliente.getComplemento());
+        cidadeUser.setText("Cidade: " + cliente.getCidade());
+        estadoUser.setText("Estado: " + cliente.getEstado());
+        ptReferenciaUser.setText("Ponto de Referência: " + cliente.getPtReferencia());
+
     }
 
     /**
