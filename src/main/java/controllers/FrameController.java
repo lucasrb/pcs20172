@@ -15,79 +15,106 @@ import views.*;
 public class FrameController {
 
     public void renderCredentials(JFrame frame) {
-        LoginCredentials loginCredentials = new LoginCredentials();
-        loginCredentials.setVisible(true);
+        JFrame newFrame = new LoginCredentials();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
 
         frame.dispose();
     }
 
     public void renderHome(JFrame frame) {
-        Home home = new Home();
-        home.setVisible(true);
+        JFrame newFrame = new Home();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
 
         frame.dispose();
     }
-    
+
     public void renderHomeRest(JFrame frame) {
-        HomeRest home = new HomeRest();
-        home.setVisible(true);
+        JFrame newFrame = new HomeRest();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
 
         frame.dispose();
     }
-    
+
     public void renderCadastro(JFrame frame) {
-        Cadastro cadastro = new Cadastro();
-        cadastro.setVisible(true);
-        
-        frame.dispose();
-    }
-    
-    public void renderEsqueciSenha(JFrame frame){
-        EsqueciSenha esqueciSenha = new EsqueciSenha();
-        esqueciSenha.setVisible(true);
-        
-        frame.dispose();
-    }
-    
-    public void renderEsqueciSenhaRest(JFrame frame){
-        EsqueciSenhaRest esqueciSenha = new EsqueciSenhaRest();
-        esqueciSenha.setVisible(true);
-        
-        frame.dispose();
-    }
-    
-    public void renderLoginRest(JFrame frame){
-        LoginRest login = new LoginRest();
-        login.setVisible(true);
-        
-        frame.dispose();
-    }
-    
-     public void renderLogin(JFrame frame){
-        Login login = new Login();
-        login.setVisible(true);
-        
-        frame.dispose();
-     }
-     
-     public void renderCredentialsRest(JFrame frame) {
-        LoginCredentialsRest loginCredentials = new LoginCredentialsRest();
-        loginCredentials.setVisible(true);
+        JFrame newFrame = new Cadastro();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
 
         frame.dispose();
     }
-     
-    public void renderCadastroRest(JFrame frame) {
-        CadastroRest cadastro = new CadastroRest();
-        cadastro.setVisible(true);
-        
+
+    public void renderEsqueciSenha(JFrame frame) {
+        JFrame newFrame = new EsqueciSenha();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
         frame.dispose();
     }
-    
+
+    public void renderEsqueciSenhaRest(JFrame frame) {
+        JFrame newFrame = new EsqueciSenhaRest();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
+        frame.dispose();
+    }
+
+    public void renderLoginRest(JFrame frame) {
+        JFrame newFrame = new LoginRest();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
+        frame.dispose();
+    }
+
+    public void renderLogin(JFrame frame) {
+        JFrame newFrame = new Login();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
+        frame.dispose();
+    }
+
+    public void renderCredentialsRest(JFrame frame) {
+        JFrame newFrame = new LoginCredentialsRest();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
+        frame.dispose();
+    }
+
+    public void renderCadastroRest(JFrame frame) {
+        JFrame newFrame = new CadastroRest();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
+        frame.dispose();
+    }
+
     public void renderPerfil(JFrame frame) {
-        Perfil perfil = new Perfil();
-        perfil.setVisible(true);
-        
+        JFrame newFrame = new Perfil();
+        newFrame.setVisible(true);
+        newFrame.setLocationRelativeTo(null);
+        newFrame.setResizable(false);
+
+        frame.dispose();
+    }
+
+    public void renderCarrinho(JFrame frame) {
+
         frame.dispose();
     }
     

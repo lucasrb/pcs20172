@@ -1,10 +1,9 @@
 package main;
 
-
-import java.time.Clock;
 import views.Login;
 
 class Main {
+
     /**
      * @param args the command line arguments
      */
@@ -32,14 +31,16 @@ class Main {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                Login login = new Login();
+                login.setVisible(true);
+                login.setLocationRelativeTo(null);
+                login.setResizable(false);
             }
         });
-        
-        
+
     }
 }
