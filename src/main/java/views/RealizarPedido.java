@@ -49,7 +49,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         btnHome.setBackground(new java.awt.Color(255, 0, 0));
         btnHome.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
-        btnHome.setText("Home");
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/008-home.png"))); // NOI18N
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
@@ -59,7 +59,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         btnPerfil.setBackground(new java.awt.Color(255, 0, 0));
         btnPerfil.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        btnPerfil.setText("Perfil");
+        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         btnPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPerfilActionPerformed(evt);
@@ -69,7 +69,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(255, 0, 0));
         btnSair.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/012-sign-out-option.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -82,14 +82,14 @@ public class RealizarPedido extends javax.swing.JFrame {
             panelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVisualizarPedidoLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196)
+                .addComponent(btnHome)
+                .addGap(199, 199, 199)
                 .addComponent(title_lbl)
-                .addGap(96, 96, 96)
-                .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(99, 99, 99)
+                .addComponent(btnPerfil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         panelVisualizarPedidoLayout.setVerticalGroup(
             panelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,10 +97,10 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(title_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                .addContainerGap(496, Short.MAX_VALUE))
+                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
